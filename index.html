@@ -324,6 +324,8 @@ ul{list-style:none}
 /* --- Team grid overflow fix --- */
 .g2 .team-g{grid-template-columns:1fr 1fr !important}
 .av{min-width:0}
+.av>div:last-child{min-width:0;overflow:hidden}
+.av-name,.av-role{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
 /* --- Cortex section spacing --- */
 #cortex{min-height:auto !important;padding-top:80px;padding-bottom:48px}
@@ -342,6 +344,34 @@ ul{list-style:none}
 .convergence-flow.vis .cv-line-d3{animation-delay:.6s}
 .convergence-flow.vis .cv-label{animation:fadeInUp .5s ease forwards;animation-delay:1s;opacity:0}
 .convergence-flow.vis .cv-node{animation:fadeInUp .4s ease forwards;animation-delay:.8s;opacity:0}
+
+/* --- Status Cards (Proof section) --- */
+.status-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:767px){.status-cards{grid-template-columns:1fr}}
+.sc{background:var(--card);border:1px solid var(--border);border-radius:2px;padding:24px 20px}
+.sc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:10px}
+.sc-title{font-family:var(--sans);font-size:16px;font-weight:600;color:var(--white);text-transform:uppercase;letter-spacing:.03em}
+.sc-pill{font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;padding:4px 10px;border-radius:1px;white-space:nowrap}
+.sc-pill--op{background:rgba(0,212,255,.12);color:var(--cyan);border:1px solid rgba(0,212,255,.25)}
+.sc-pill--build{background:rgba(201,160,80,.1);color:var(--gold);border:1px solid rgba(201,160,80,.2)}
+.sc-pill--early{background:rgba(110,130,160,.08);color:var(--text-2);border:1px solid rgba(110,130,160,.15)}
+.sc-signal{display:flex;gap:3px;margin-bottom:12px}
+.sc-bar{width:24px;height:6px;border-radius:1px;background:rgba(201,160,80,.08)}
+.sc-bar--on{background:linear-gradient(90deg,var(--gold),var(--cyan))}
+.sc-bar--dim{background:rgba(201,160,80,.15)}
+.sc-desc{font-size:15px;color:var(--text-2);line-height:1.6}
+
+/* --- Marathon Track --- */
+.marathon{position:relative;padding:48px 0 32px}
+.marathon-track{position:relative;height:3px;background:rgba(201,160,80,.08);border-radius:2px;margin:0 24px}
+.marathon-progress{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,var(--gold),var(--cyan));border-radius:2px}
+.marathon-dot{position:absolute;top:50%;transform:translate(-50%,-50%);z-index:2}
+.marathon-dot-inner{width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 16px rgba(201,160,80,.4);animation:dotPulse 2s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 8px rgba(201,160,80,.3);transform:scale(1)}50%{box-shadow:0 0 20px rgba(201,160,80,.6);transform:scale(1.3)}}
+.marathon-here{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--cyan);white-space:nowrap}
+.marathon-ms{position:absolute;top:calc(100% + 14px);transform:translateX(-50%);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-3);white-space:nowrap}
+.marathon-ends{display:flex;justify-content:space-between;margin:0 24px;padding-top:14px}
+.marathon-end{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--text-3)}
 
 /* --- Reduced motion --- */
 @media(prefers-reduced-motion:reduce){
@@ -590,7 +620,7 @@ html{scroll-behavior:auto}
 
     <!-- Convergence Flow (animated) -->
     <div class="convergence-flow rv">
-      <svg viewBox="0 -5 600 110" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <svg viewBox="0 -12 600 122" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
         <defs>
           <filter id="cvGlow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         </defs>
@@ -698,7 +728,7 @@ html{scroll-behavior:auto}
 <!-- ================================================================
      6. DELIVERABLES
      ================================================================ -->
-<section class="sec sec--s" id="deliverables">
+<section class="sec sec--s sec--auto" id="deliverables">
   <div class="tac-grid"></div>
   <div class="sec-inner">
     <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_09: Output</span></div>
@@ -773,11 +803,11 @@ html{scroll-behavior:auto}
         <div class="team-hdr team-hdr--cy">Corridor X -Technology &amp; Innovation</div>
         <div class="team-g">
           <div class="av"><div class="av-c av-c--cy"><img src="assets/headshots/amnon-dekel.jpg" alt="Prof. Amnon Dekel"></div><div><div class="av-name"><a href="https://www.linkedin.com/in/amnon-dekel-10101010/" target="_blank" rel="noopener">Prof. Amnon Dekel</a></div><div class="av-role">Advanced Systems Research</div></div></div>
-          <div class="av"><div class="av-c av-c--cy"><img src="assets/headshots/silhouette-cyan-m.png" alt="Michael Marks"></div><div><div class="av-name"><a href="https://www.linkedin.com/in/michael-marks-6901391a5/" target="_blank" rel="noopener">Michael Marks</a></div><div class="av-role">Tech Advisor, PMO</div></div></div>
+          <div class="av"><div class="av-c av-c--cy"><img src="assets/headshots/michael-marks.jpg" alt="Michael Marks"></div><div><div class="av-name"><a href="https://www.linkedin.com/in/michael-marks-6901391a5/" target="_blank" rel="noopener">Michael Marks</a></div><div class="av-role">Tech Advisor, PMO</div></div></div>
           <div class="av"><div class="av-c av-c--cy"><img src="assets/headshots/carmel-sopher.jpg" alt="Prof. Carmel Sopher"></div><div><div class="av-name"><a href="https://il.linkedin.com/in/carmel-sofer-8a34a91" target="_blank" rel="noopener">Prof. Carmel Sopher</a></div><div class="av-role">Innovation, Ben-Gurion University</div></div></div>
-          <div class="av"><div class="av-c av-c--cy"><img src="assets/headshots/silhouette-cyan-m.png" alt="Barak Shrir"></div><div><div class="av-name"><a href="https://il.linkedin.com/in/baraksharir" target="_blank" rel="noopener">Barak Shrir</a></div><div class="av-role">Technology Strategy Lead</div></div></div>
-          <div class="av"><div class="av-c av-c--cy"><img src="assets/headshots/silhouette-cyan-m.png" alt="Stan DeVries"></div><div><div class="av-name"><a href="https://www.linkedin.com/in/stan-devries-6127aa/" target="_blank" rel="noopener">Stan DeVries</a></div><div class="av-role">Industrial Tech Executive</div></div></div>
-          <div class="av"><div class="av-c av-c--cy"><img src="assets/headshots/silhouette-cyan-m.png" alt="As'ad Jubran"></div><div><div class="av-name"><a href="https://www.linkedin.com/in/asaad-joubran-5a6b862/" target="_blank" rel="noopener">As&rsquo;ad Jubran</a></div><div class="av-role">Sr. Energy Sector Executive</div></div></div>
+          <div class="av"><div class="av-c av-c--cy"><img src="assets/headshots/barak-shrir.jpg" alt="Barak Shrir"></div><div><div class="av-name"><a href="https://il.linkedin.com/in/baraksharir" target="_blank" rel="noopener">Barak Shrir</a></div><div class="av-role">Technology Strategy Lead</div></div></div>
+          <div class="av"><div class="av-c av-c--cy"><img src="assets/headshots/stan-devries.jpg" alt="Stan DeVries"></div><div><div class="av-name"><a href="https://www.linkedin.com/in/stan-devries-6127aa/" target="_blank" rel="noopener">Stan DeVries</a></div><div class="av-role">Industrial Tech Executive</div></div></div>
+          <div class="av"><div class="av-c av-c--cy"><img src="assets/headshots/asad-jubran.jpg" alt="As'ad Jubran"></div><div><div class="av-name"><a href="https://www.linkedin.com/in/asaad-joubran-5a6b862/" target="_blank" rel="noopener">As&rsquo;ad Jubran</a></div><div class="av-role">Sr. Energy Sector Executive</div></div></div>
         </div>
       </div>
     </div>
@@ -819,22 +849,53 @@ html{scroll-behavior:auto}
 <!-- ================================================================
      12. MOMENTUM -PROOF
      ================================================================ -->
-<section class="sec sec--s2" id="momentum">
+<section class="sec sec--s2 sec--auto" id="momentum">
   <div class="sec-inner">
     <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_12: Proof</span></div>
     <div class="sec-head rv">
       <p class="label">Proof</p>
       <h2 class="h2">What We Have Achieved So Far</h2>
-      <p class="sub">The machine is already running.</p>
+      <p class="sub">Early in the marathon &mdash; but the machine is running.</p>
     </div>
-    <div style="max-width:660px" class="rv">
-      <div class="prog" data-pct="100"><div class="prog-top"><span class="prog-name">Teams Assembled and Operational</span><span class="prog-pct">100%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
-      <div class="prog" data-pct="85"><div class="prog-top"><span class="prog-name">Data Collection &amp; Baseline Surveys Active</span><span class="prog-pct">85%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
-      <div class="prog" data-pct="75"><div class="prog-top"><span class="prog-name">Digital Infrastructure Built</span><span class="prog-pct">75%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
-      <div class="prog" data-pct="70"><div class="prog-top"><span class="prog-name">MVP Intelligence System Operational</span><span class="prog-pct">70%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
-      <div class="prog" data-pct="60"><div class="prog-top"><span class="prog-name">Stakeholder Engagements Underway</span><span class="prog-pct">60%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
+    <div class="status-cards">
+      <div class="sc rv">
+        <div class="sc-top"><span class="sc-title">Israel Leadership</span><span class="sc-pill sc-pill--op">Operational</span></div>
+        <div class="sc-signal"><span class="sc-bar sc-bar--on"></span><span class="sc-bar sc-bar--on"></span><span class="sc-bar sc-bar--on"></span><span class="sc-bar sc-bar--on"></span><span class="sc-bar sc-bar--on"></span><span class="sc-bar sc-bar--dim"></span></div>
+        <p class="sc-desc">20+ senior military, intelligence, diplomatic and engineering leaders assembled and active.</p>
+      </div>
+      <div class="sc rv rv-d1">
+        <div class="sc-top"><span class="sc-title">MVP Technology</span><span class="sc-pill sc-pill--op">Operational</span></div>
+        <div class="sc-signal"><span class="sc-bar sc-bar--on"></span><span class="sc-bar sc-bar--on"></span><span class="sc-bar sc-bar--on"></span><span class="sc-bar sc-bar--on"></span><span class="sc-bar sc-bar--on"></span><span class="sc-bar sc-bar--dim"></span></div>
+        <p class="sc-desc">Intelligence system, Digital Twin framework, AI research engine and data pipelines active.</p>
+      </div>
+      <div class="sc rv rv-d2">
+        <div class="sc-top"><span class="sc-title">Data &amp; Infrastructure</span><span class="sc-pill sc-pill--build">Building</span></div>
+        <div class="sc-signal"><span class="sc-bar sc-bar--on"></span><span class="sc-bar sc-bar--on"></span><span class="sc-bar sc-bar--on"></span><span class="sc-bar sc-bar--dim"></span><span class="sc-bar sc-bar--dim"></span><span class="sc-bar sc-bar--dim"></span></div>
+        <p class="sc-desc">Baseline surveys active. Digital infrastructure deployed. Intelligence indexing initiated.</p>
+      </div>
+      <div class="sc rv rv-d3">
+        <div class="sc-top"><span class="sc-title">Global Leadership</span><span class="sc-pill sc-pill--early">Early Stage</span></div>
+        <div class="sc-signal"><span class="sc-bar sc-bar--on"></span><span class="sc-bar sc-bar--dim"></span><span class="sc-bar sc-bar--dim"></span><span class="sc-bar sc-bar--dim"></span><span class="sc-bar sc-bar--dim"></span><span class="sc-bar sc-bar--dim"></span></div>
+        <p class="sc-desc">Initial international partnerships forming. Round Table seats open by design.</p>
+      </div>
     </div>
-    <div class="hl-box rv" style="margin-top:28px"><p>This work supports massive investments estimated in the billions of dollars. ALIGN is the key that unlocks these investments -providing the certainty that global capital requires before committing.</p></div>
+    <!-- Marathon Track -->
+    <div class="marathon rv">
+      <div class="marathon-track">
+        <div class="marathon-progress" style="width:22%"></div>
+        <div class="marathon-dot" style="left:22%">
+          <div class="marathon-dot-inner"></div>
+          <span class="marathon-here">We Are Here</span>
+        </div>
+        <span class="marathon-ms" style="left:50%">Scale</span>
+        <span class="marathon-ms" style="left:75%">Deploy</span>
+      </div>
+      <div class="marathon-ends">
+        <span class="marathon-end">Start</span>
+        <span class="marathon-end">Full Ops</span>
+      </div>
+    </div>
+    <div class="hl-box rv" style="margin-top:28px"><p>Strong local foundations in place. Technology proven. The growth opportunity &mdash; global expansion &mdash; is exactly where new partners add value.</p></div>
   </div>
 </section>
 
@@ -943,11 +1004,6 @@ html{scroll-behavior:auto}
   var rvEls=document.querySelectorAll('.rv');
   var rvObs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('vis');rvObs.unobserve(en.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
   rvEls.forEach(function(el){rvObs.observe(el)});
-
-  // Progress bars
-  var progs=document.querySelectorAll('.prog');
-  var pObs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){var p=en.target.getAttribute('data-pct');var f=en.target.querySelector('.prog-fill');if(f&&p)f.style.width=p+'%';pObs.unobserve(en.target)}})},{threshold:.3});
-  progs.forEach(function(el){pObs.observe(el)});
 
   // Sticky nav
   var nav=document.getElementById('nav');
