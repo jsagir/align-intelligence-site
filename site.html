@@ -345,6 +345,11 @@ ul{list-style:none}
 .convergence-flow.vis .cv-label{animation:fadeInUp .5s ease forwards;animation-delay:1s;opacity:0}
 .convergence-flow.vis .cv-node{animation:fadeInUp .4s ease forwards;animation-delay:.8s;opacity:0}
 
+/* --- Digital Twin image wrapper (hides watermark) --- */
+.dt-wrap{position:relative;display:inline-block;overflow:hidden;border-radius:2px;border:1px solid var(--border);max-width:940px;width:95%;margin:0 auto}
+.dt-wrap img{display:block;width:100%;height:auto;border:none}
+.dt-wrap::after{content:'';position:absolute;bottom:0;right:0;width:120px;height:80px;background:radial-gradient(ellipse at 100% 100%,rgba(2,11,26,.95) 0%,rgba(2,11,26,.7) 40%,transparent 70%);pointer-events:none}
+
 /* --- Status Cards (Proof section) --- */
 .status-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 @media(max-width:767px){.status-cards{grid-template-columns:1fr}}
@@ -570,7 +575,7 @@ html{scroll-behavior:auto}
      ================================================================ -->
 <section class="sec sec--s2 sec--auto" id="cortex">
   <div class="tac-grid"></div>
-  <div class="render-bg"><img src="assets/diagrams/convergence.png" alt="" style="opacity:.06;object-position:center bottom"></div>
+  <div class="render-bg"><img src="assets/diagrams/digital-twin-geospatial.jpg" alt="" style="opacity:.04;object-position:center 40%"></div>
   <div class="sec-inner">
     <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_06: Cortex</span></div>
     <div class="sec-head rv">
@@ -685,10 +690,12 @@ html{scroll-behavior:auto}
       <h2 class="h2">Intelligence &amp; Data: Building the Brain</h2>
       <p class="sub">Building the cognitive infrastructure that makes the entire organism think and adapt.</p>
     </div>
-    <!-- Dual-pillar render -->
+    <!-- Digital Twin Geospatial Render -->
     <div style="text-align:center;margin:32px 0" class="rv">
-      <img src="assets/diagrams/dual-pillar-render.png" alt="HUMINT + SIGINT" class="dia-img" style="max-width:840px;width:90%;margin:0 auto;border-radius:2px;border:1px solid var(--border)">
-      <p class="dia-cap">Dual-pillar data infrastructure: human intelligence networks and AI-powered collection working through one unified system.</p>
+      <div class="dt-wrap dia-img">
+        <img src="assets/diagrams/digital-twin-geospatial.jpg" alt="IMEC Digital Twin: Multi-Layered Geospatial Interface">
+      </div>
+      <p class="dia-cap">The IMEC Digital Twin: multi-layered geospatial intelligence integrating aerial reconnaissance, surface infrastructure mapping, and subsurface utility networks across the corridor.</p>
     </div>
     <div class="dp">
       <div class="dp-col dp-col--g rv">
