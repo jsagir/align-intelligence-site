@@ -45,17 +45,17 @@ ul{list-style:none}
   --sans:'Inter',system-ui,sans-serif;
   --mono:'JetBrains Mono',monospace;
   --serif:'Cormorant Garamond',Georgia,serif;
-  --px:20px;--py:72px;--max:1360px;--nav-h:60px;
+  --px:24px;--py:80px;--max:1360px;--nav-h:60px;
 }
-@media(min-width:768px){:root{--px:32px;--py:96px}}
-@media(min-width:1200px){:root{--px:48px;--py:112px;--nav-h:68px}}
+@media(min-width:768px){:root{--px:40px;--py:100px}}
+@media(min-width:1200px){:root{--px:56px;--py:120px;--nav-h:68px}}
 
-/* --- Type Scale --- */
-.label{font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:14px}
-.h1{font-family:var(--sans);font-weight:700;font-size:clamp(34px,6.5vw,66px);line-height:1.08;text-transform:uppercase;letter-spacing:.08em;color:var(--white)}
-.h2{font-family:var(--sans);font-weight:600;font-size:clamp(26px,4vw,44px);line-height:1.18;text-transform:uppercase;letter-spacing:.06em;color:var(--white);margin-bottom:14px}
-.h3{font-family:var(--sans);font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:.04em;color:var(--white);margin-bottom:8px}
-.sub{font-size:clamp(16px,1.8vw,19px);font-weight:400;color:var(--text-2);line-height:1.7;max-width:640px}
+/* --- Type Scale (Presentation Grade) --- */
+.label{font-family:var(--mono);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:4px;color:var(--gold);margin-bottom:18px}
+.h1{font-family:var(--sans);font-weight:700;font-size:clamp(38px,7vw,74px);line-height:1.05;text-transform:uppercase;letter-spacing:.08em;color:var(--white)}
+.h2{font-family:var(--sans);font-weight:600;font-size:clamp(30px,5vw,54px);line-height:1.12;text-transform:uppercase;letter-spacing:.06em;color:var(--white);margin-bottom:18px}
+.h3{font-family:var(--sans);font-weight:600;font-size:20px;text-transform:uppercase;letter-spacing:.04em;color:var(--white);margin-bottom:10px}
+.sub{font-size:clamp(17px,2vw,22px);font-weight:400;color:var(--text-2);line-height:1.7;max-width:720px}
 .body{font-size:16px;color:var(--text-2);line-height:1.7}
 .mono{font-family:var(--mono)}
 .gold{color:var(--gold)}
@@ -63,8 +63,8 @@ ul{list-style:none}
 .white{color:var(--white);font-weight:500}
 .quote{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.8vw,32px);color:var(--gold-lt);line-height:1.55}
 
-/* --- Layout --- */
-.sec{padding:var(--py) var(--px);position:relative;overflow:hidden}
+/* --- Layout (Slide-mode) --- */
+.sec{padding:var(--py) var(--px);position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
 .sec-inner{max-width:var(--max);margin:0 auto;width:100%;position:relative;z-index:2}
 .sec--s{background:var(--surface)}
 .sec--s2{background:var(--surface-2)}
@@ -74,8 +74,8 @@ ul{list-style:none}
 .g4{grid-template-columns:1fr 1fr}
 @media(min-width:768px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr}.g4{gap:16px}}
 @media(min-width:1024px){.g3{grid-template-columns:1fr 1fr 1fr}.g4{grid-template-columns:repeat(4,1fr)}}
-.sec-head{margin-bottom:40px}
-.sec-head .sub{margin-top:10px}
+.sec-head{margin-bottom:48px}
+.sec-head .sub{margin-top:14px}
 .divider{width:60px;height:1px;background:var(--gold);margin:32px 0}
 .sub-gap{margin-top:56px;padding-top:40px;border-top:1px solid rgba(201,160,80,0.08)}
 
@@ -191,6 +191,9 @@ ul{list-style:none}
 @keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
 .scanline{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,255,.12),transparent);animation:scan 8s linear infinite;pointer-events:none;z-index:3}
 
+/* --- Content-heavy sections: auto height --- */
+.sec--auto{min-height:auto}
+
 /* --- BG Image Layer --- */
 .bg-img{position:absolute;inset:0;pointer-events:none;z-index:0}
 .bg-img img{width:100%;height:100%;object-fit:cover}
@@ -241,8 +244,7 @@ ul{list-style:none}
 @media(min-width:1024px){.paths{grid-template-columns:repeat(3,1fr)}}
 .path{background:var(--card);border:1px solid var(--border);border-radius:2px;padding:28px 22px;transition:transform .3s}
 .path:hover{transform:translateY(-3px)}
-.path--feat{border-color:var(--gold);background:linear-gradient(180deg,rgba(201,160,80,.08) 0%,var(--card) 50%);position:relative}
-.path--feat::after{content:'RECOMMENDED';position:absolute;top:-9px;left:20px;font-family:var(--mono);font-size:8px;letter-spacing:2px;background:var(--gold);color:var(--bg);padding:2px 8px;border-radius:1px}
+/* .path--feat removed — all paths equal */
 .path-num{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-3);margin-bottom:6px}
 .path-title{font-family:var(--sans);font-size:20px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--white);margin-bottom:10px}
 .path-text{font-size:15px;color:var(--text-2);line-height:1.65;margin-bottom:14px}
@@ -312,12 +314,14 @@ ul{list-style:none}
     <div class="nav-links">
       <a href="#why-imec" class="nav-link" data-s="why-imec">Why IMEC</a>
       <a href="#derisking" class="nav-link" data-s="derisking">De-Risking</a>
-      <a href="#cortex" class="nav-link" data-s="cortex">The Cortex</a>
+      <a href="#dna" class="nav-link" data-s="dna">DNA</a>
+      <a href="#cortex" class="nav-link" data-s="cortex">Cortex</a>
       <a href="#forces" class="nav-link" data-s="forces">Forces</a>
-      <a href="#deliverables" class="nav-link" data-s="deliverables">Deliverables</a>
+      <a href="#deliverables" class="nav-link" data-s="deliverables">Output</a>
       <a href="#team" class="nav-link" data-s="team">Team</a>
-      <a href="#ecosystem" class="nav-link" data-s="ecosystem">Ecosystem</a>
-      <a href="#roadmap" class="nav-link" data-s="roadmap">Roadmap</a>
+      <a href="#ecosystem" class="nav-link" data-s="ecosystem">Network</a>
+      <a href="#roadmap" class="nav-link" data-s="roadmap">Timeline</a>
+      <a href="#pipeline" class="nav-link" data-s="pipeline">Pipeline</a>
     </div>
     <a href="#join" class="nav-cta">Join Us</a>
     <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -325,13 +329,18 @@ ul{list-style:none}
 </nav>
 <div class="mob-menu" id="mob">
   <a href="#why-imec">Why IMEC</a>
+  <a href="#align-who">ALIGN</a>
   <a href="#derisking">De-Risking</a>
+  <a href="#dna">Our DNA</a>
   <a href="#cortex">The Cortex</a>
-  <a href="#forces">Forces</a>
+  <a href="#forces">Forces 1 &amp; 2</a>
+  <a href="#force3">Force 3</a>
   <a href="#deliverables">Deliverables</a>
   <a href="#team">Team</a>
-  <a href="#ecosystem">Ecosystem</a>
-  <a href="#roadmap">Roadmap</a>
+  <a href="#ecosystem">Network</a>
+  <a href="#momentum">Momentum</a>
+  <a href="#roadmap">Timeline</a>
+  <a href="#pipeline">Pipeline</a>
   <a href="#join" class="nav-cta">Join Us</a>
 </div>
 
@@ -381,7 +390,7 @@ ul{list-style:none}
 <section class="sec sec--s2" id="why-imec">
   <div class="tac-grid"></div>
   <div class="sec-inner">
-    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Section_02: Why_Now</span></div>
+    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_02: Why_Now</span></div>
     <div class="sec-head rv">
       <p class="label">Why Now</p>
       <h2 class="h2">IMEC's Strategic Importance</h2>
@@ -395,29 +404,36 @@ ul{list-style:none}
       <div class="card rv rv-d2"><div class="card-bar"></div><img src="assets/icons/icon-peace.svg" alt="" class="card-icon"><div class="h3">Stability &amp; Peace</div><div class="body">Abraham Accords created diplomatic substrate; infrastructure makes normalization irreversible.</div></div>
       <div class="card rv rv-d3"><div class="card-bar"></div><img src="assets/icons/icon-sustainable.svg" alt="" class="card-icon"><div class="h3">Sustainable Future</div><div class="body">Green hydrogen, solar, desalination, and smart logistics built into the corridor from day one.</div></div>
     </div>
-    <!-- ALIGN as Coordinator -->
-    <div class="sub-gap">
-      <div class="sec-head rv">
-        <p class="label">Who</p>
-        <h2 class="h2">ALIGN: Initiator &amp; Lead Coordinator</h2>
-        <p class="sub">Creator and primary coordinator of the IMEC Techno-Financial Task Force.</p>
-      </div>
-      <div class="g3">
-        <div class="card rv"><div class="card-bar"></div><div class="h3">Initiator &amp; Visionary</div><div class="body">Conceived the IMEC Strategic Cortex model — the intelligence, feasibility, and innovation engine for the corridor.</div></div>
-        <div class="card rv rv-d1"><div class="card-bar"></div><div class="h3">Lead Coordinator</div><div class="body">Managing multi-stakeholder alignment across governments, sovereign wealth funds, and institutional investors.</div></div>
-        <div class="card rv rv-d2"><div class="card-bar"></div><div class="h3">Capital Mobilizer</div><div class="body">Connecting institutional capital to bankable opportunities through a Single Financial Language.</div></div>
-      </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     3. ALIGN — INITIATOR & COORDINATOR
+     ================================================================ -->
+<section class="sec sec--s" id="align-who">
+  <div class="sec-inner">
+    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_03: Who</span></div>
+    <div class="sec-head rv">
+      <p class="label">Who</p>
+      <h2 class="h2">ALIGN: Initiator &amp; Lead Coordinator</h2>
+      <p class="sub">Creator and primary coordinator of the IMEC Techno-Financial Task Force. ALIGN conceived, designed, and launched this initiative.</p>
     </div>
+    <div class="g3">
+      <div class="card rv"><div class="card-bar"></div><div class="h3">Initiator &amp; Visionary</div><div class="body">Conceived the IMEC Strategic Cortex model — the intelligence, feasibility, and innovation engine for the corridor.</div></div>
+      <div class="card rv rv-d1"><div class="card-bar"></div><div class="h3">Lead Coordinator</div><div class="body">Managing multi-stakeholder alignment across governments, sovereign wealth funds, and institutional investors.</div></div>
+      <div class="card rv rv-d2"><div class="card-bar"></div><div class="h3">Capital Mobilizer</div><div class="body">Connecting institutional capital to bankable opportunities through a Single Financial Language.</div></div>
+    </div>
+    <div class="hl-box rv" style="margin-top:32px"><p>ALIGN coordinates all workstreams and maintains strategic oversight throughout execution.</p></div>
   </div>
 </section>
 
 <!-- ================================================================
      3. DE-RISKING
      ================================================================ -->
-<section class="sec sec--s" id="derisking">
+<section class="sec sec--s2" id="derisking">
   <div class="render-bg"><img src="assets/diagrams/shield-derisking.png" alt="" style="opacity:.06"></div>
   <div class="sec-inner">
-    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Section_03: De_Risk</span></div>
+    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_04: Stakes</span></div>
     <div class="sec-head rv">
       <p class="label">Stakes</p>
       <h2 class="h2">De-Risking Multi-Billion Dollar Investments</h2>
@@ -432,25 +448,36 @@ ul{list-style:none}
       <div class="card rv rv-d3"><div class="card-bar"></div><img src="assets/icons/icon-shield.svg" alt="" class="card-icon"><div class="h3">Strategic Phasing</div><div class="body">Sequenced deployment plan balancing risk, return, and political feasibility.</div></div>
     </div>
     <div class="hl-box rv"><p>&ldquo;ALIGN&rsquo;s work is the key that unlocks investments estimated in the billions of dollars.&rdquo;</p></div>
-    <!-- DNA -->
-    <div class="sub-gap">
-      <div class="sec-head rv">
-        <p class="label">Credibility</p>
-        <h2 class="h2">Our DNA: Intelligence for Prosperity</h2>
+  </div>
+</section>
+
+<!-- ================================================================
+     5. OUR DNA — CREDIBILITY
+     ================================================================ -->
+<section class="sec sec--s" id="dna">
+  <div class="tac-grid"></div>
+  <div class="sec-inner">
+    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_05: Credibility</span></div>
+    <div class="sec-head rv">
+      <p class="label">Credibility</p>
+      <h2 class="h2">Our DNA: Intelligence for Prosperity</h2>
+      <p class="sub">ALIGN grew out of the world's most demanding intelligence and technology ecosystem — applying elite methodologies to opportunity discovery.</p>
+    </div>
+    <div class="g2" style="gap:24px">
+      <div class="card rv" style="padding:28px 24px">
+        <div class="h3" style="margin-bottom:14px">Intelligence Heritage</div>
+        <p class="body" style="margin-bottom:14px"><strong class="white">Opportunity Mining</strong> — our proprietary methodology for converting intelligence into investable opportunity.</p>
+        <p class="body" style="margin-bottom:10px">Multi-disciplinary team with expertise across:</p>
+        <div class="stags"><span class="tag">Engineering</span><span class="tag">Finance &amp; PPP</span><span class="tag">Cross-border Regulation</span><span class="tag">Geopolitical Risk</span></div>
       </div>
-      <div class="g2" style="gap:24px">
-        <div class="card rv" style="padding:24px 20px">
-          <div class="h3" style="margin-bottom:14px">Intelligence Heritage</div>
-          <p class="body" style="margin-bottom:14px"><strong class="white">Opportunity Mining</strong> — our proprietary methodology for converting intelligence into investable opportunity.</p>
-          <p class="body" style="margin-bottom:10px">Multi-disciplinary team with expertise across:</p>
-          <div class="stags"><span class="tag">Engineering</span><span class="tag">Finance &amp; PPP</span><span class="tag">Cross-border Regulation</span><span class="tag">Geopolitical Risk</span></div>
-        </div>
-        <div class="card card--cy rv rv-d1" style="padding:24px 20px">
-          <div class="tag" style="margin-bottom:10px">Case Study</div>
-          <div class="h3" style="margin-bottom:10px">Saudi Aramco &amp; AVEVA</div>
-          <p class="body" style="margin-bottom:10px;color:var(--cyan)">The Unified Operations Center Philosophy</p>
-          <p class="body" style="margin-bottom:8px">Integrated thousands of data points into a single Intelligent Data Center.</p>
-          <p class="body"><strong class="white">Result:</strong> Real-time visibility, predictive maintenance, radical reduction in operational uncertainty.</p>
+      <div class="card card--cy rv rv-d1" style="padding:28px 24px">
+        <div class="tag" style="margin-bottom:10px">Case Study</div>
+        <div class="h3" style="margin-bottom:10px">ADNOC &amp; AVEVA</div>
+        <p class="body" style="margin-bottom:10px;color:var(--cyan)">The Unified Operations Center Philosophy</p>
+        <p class="body" style="margin-bottom:8px">Integrated thousands of data points into a single Intelligent Data Center.</p>
+        <p class="body" style="margin-bottom:14px"><strong class="white">Result:</strong> Real-time visibility, predictive maintenance, radical reduction in operational uncertainty.</p>
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:2px;border:1px solid var(--border-cyan);margin-top:10px">
+          <iframe src="https://www.youtube.com/embed/rM4cErwDfrg" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -464,7 +491,7 @@ ul{list-style:none}
   <div class="tac-grid"></div>
   <div class="render-bg"><img src="assets/diagrams/convergence.png" alt="" style="opacity:.06;object-position:center bottom"></div>
   <div class="sec-inner">
-    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Section_04: Cortex</span></div>
+    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_06: Cortex</span></div>
     <div class="sec-head rv">
       <p class="label">The Solution</p>
       <h2 class="h2">The IMEC Intelligence &amp; Feasibility Center</h2>
@@ -534,7 +561,7 @@ ul{list-style:none}
      ================================================================ -->
 <section class="sec sec--s" id="forces">
   <div class="sec-inner">
-    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Section_05: Forces</span></div>
+    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_07: Forces_1_2</span></div>
     <div class="sec-head rv">
       <p class="label">Detail — Forces 1 &amp; 2</p>
       <h2 class="h2">Building the Skeleton and Muscle</h2>
@@ -558,58 +585,66 @@ ul{list-style:none}
       </div>
     </div>
 
-    <!-- Force 3 -->
-    <div class="sub-gap">
-      <div class="sec-head rv">
-        <p class="label">Detail — Force 3</p>
-        <h2 class="h2">Intelligence &amp; Data: The Brain</h2>
-        <p class="sub">Building the cognitive infrastructure that makes the entire organism think, sense, and adapt.</p>
+  </div>
+</section>
+
+<!-- ================================================================
+     8. FORCE 3 — INTELLIGENCE & DATA: THE BRAIN
+     ================================================================ -->
+<section class="sec sec--s2" id="force3">
+  <div class="tac-grid"></div>
+  <div class="sec-inner">
+    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_08: Brain</span></div>
+    <div class="sec-head rv">
+      <p class="label">Detail — Force 3</p>
+      <h2 class="h2">Intelligence &amp; Data: The Brain</h2>
+      <p class="sub">Building the cognitive infrastructure that makes the entire organism think, sense, and adapt.</p>
+    </div>
+    <!-- Dual-pillar render -->
+    <div style="text-align:center;margin:24px 0" class="rv">
+      <img src="assets/diagrams/dual-pillar-render.png" alt="HUMINT + SIGINT" style="max-width:700px;width:100%;margin:0 auto;border-radius:2px;border:1px solid var(--border);opacity:.85">
+    </div>
+    <div class="dp">
+      <div class="dp-col dp-col--g rv">
+        <div class="dp-tag dp-tag--g">HUMINT Infrastructure</div>
+        <ul class="dl">
+          <li>Trusted agents and regional experts feeding ground-truth data</li>
+          <li>Government and regulatory contact networks</li>
+          <li>Energy and logistics operator intelligence</li>
+          <li>Financial institution signals aggregated</li>
+          <li>Non-public information channels integrated</li>
+        </ul>
+        <p style="margin-top:14px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold)">Humans Collect &amp; Interpret</p>
       </div>
-      <!-- Dual-pillar render -->
-      <div style="text-align:center;margin:24px 0" class="rv">
-        <img src="assets/diagrams/dual-pillar-render.png" alt="HUMINT + SIGINT" style="max-width:700px;width:100%;margin:0 auto;border-radius:2px;border:1px solid var(--border);opacity:.85">
-      </div>
-      <div class="dp">
-        <div class="dp-col dp-col--g rv">
-          <div class="dp-tag dp-tag--g">HUMINT Infrastructure</div>
-          <ul class="dl">
-            <li>Trusted agents and regional experts feeding ground-truth data</li>
-            <li>Government and regulatory contact networks</li>
-            <li>Energy and logistics operator intelligence</li>
-            <li>Financial institution signals aggregated</li>
-            <li>Non-public information channels integrated</li>
-          </ul>
-          <p style="margin-top:14px;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold)">Humans Collect &amp; Interpret</p>
-        </div>
-        <div class="dp-col dp-col--cy rv rv-d1">
-          <div class="dp-tag dp-tag--cy">SIGINT Infrastructure</div>
-          <ul class="dl dl--cy">
-            <li>Proprietary AI agents — real-time global source monitoring 24/7</li>
-            <li>Regulatory update scanning across all corridor nations</li>
-            <li>Economic and geopolitical signal detection</li>
-            <li>Capital movement and investment flow tracking</li>
-            <li>Automated cross-referencing and validation</li>
-          </ul>
-          <p style="margin-top:14px;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:var(--cyan)">AI Scans &amp; Validates</p>
-        </div>
-      </div>
-      <div class="out-g rv">
-        <div class="out"><img src="assets/icons/icon-twin.svg" alt="" style="width:24px;height:24px;margin-bottom:6px;opacity:.75"><div class="out-t">Digital Twin</div><div class="out-d">Real-time virtual corridor for monitoring and simulation.</div></div>
-        <div class="out"><div class="out-t">Genetic Algorithms</div><div class="out-d">Thousands of optimized configurations for efficiency.</div></div>
-        <div class="out"><div class="out-t">Multi-Agent Sim</div><div class="out-d">Dynamic analysis of freight, energy, and data flows.</div></div>
-        <div class="out"><div class="out-t">Smart Ecosystem</div><div class="out-d">Integrated hydrogen, solar, IoT with resilience.</div></div>
+      <div class="dp-col dp-col--cy rv rv-d1">
+        <div class="dp-tag dp-tag--cy">SIGINT Infrastructure</div>
+        <ul class="dl dl--cy">
+          <li>Proprietary AI agents — real-time global source monitoring 24/7</li>
+          <li>Regulatory update scanning across all corridor nations</li>
+          <li>Economic and geopolitical signal detection</li>
+          <li>Capital movement and investment flow tracking</li>
+          <li>Automated cross-referencing and validation</li>
+        </ul>
+        <p style="margin-top:14px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--cyan)">AI Scans &amp; Validates</p>
       </div>
     </div>
+    <div class="out-g rv">
+      <div class="out"><img src="assets/icons/icon-twin.svg" alt="" style="width:24px;height:24px;margin-bottom:6px;opacity:.75"><div class="out-t">Digital Twin</div><div class="out-d">Real-time virtual corridor for monitoring and simulation.</div></div>
+      <div class="out"><div class="out-t">Genetic Algorithms</div><div class="out-d">Thousands of optimized configurations for efficiency.</div></div>
+      <div class="out"><div class="out-t">Multi-Agent Sim</div><div class="out-d">Dynamic analysis of freight, energy, and data flows.</div></div>
+      <div class="out"><div class="out-t">Smart Ecosystem</div><div class="out-d">Integrated hydrogen, solar, IoT with resilience.</div></div>
+    </div>
+    <div class="hl-box rv" style="margin-top:28px"><p>Force 3 builds the brain that makes the whole organism intelligent. Every person in the joint venture thinks through it, decides through it, and de-risks through it.</p></div>
   </div>
 </section>
 
 <!-- ================================================================
      6. DELIVERABLES
      ================================================================ -->
-<section class="sec sec--s2" id="deliverables">
+<section class="sec sec--s" id="deliverables">
   <div class="tac-grid"></div>
   <div class="sec-inner">
-    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Section_06: Output</span></div>
+    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_09: Output</span></div>
     <div class="sec-head rv">
       <p class="label">Output</p>
       <h2 class="h2">From Intelligence to Investment</h2>
@@ -630,9 +665,9 @@ ul{list-style:none}
 <!-- ================================================================
      7. TEAM
      ================================================================ -->
-<section class="sec sec--s" id="team">
+<section class="sec sec--s2 sec--auto" id="team">
   <div class="sec-inner">
-    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Section_07: Team</span></div>
+    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_10: Team</span></div>
     <div class="sec-head rv">
       <p class="label">Trust</p>
       <h2 class="h2">The ALIGN Team</h2>
@@ -694,10 +729,10 @@ ul{list-style:none}
 <!-- ================================================================
      8. ECOSYSTEM
      ================================================================ -->
-<section class="sec sec--s2" id="ecosystem">
+<section class="sec sec--s" id="ecosystem">
   <div class="tac-grid"></div>
   <div class="sec-inner">
-    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Section_08: Network</span></div>
+    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_11: Network</span></div>
     <div class="sec-head rv">
       <p class="label">Network</p>
       <h2 class="h2">The Round Table: Global Connectivity</h2>
@@ -719,22 +754,28 @@ ul{list-style:none}
     </div>
     <div class="hl-box rv"><p>The Round Table is not decoration — it&rsquo;s operational infrastructure. Each partner contributes domain expertise, regional access, or capital networks that strengthen the Cortex.</p></div>
 
-    <!-- Momentum -->
-    <div class="sub-gap">
-      <div class="sec-head rv">
-        <p class="label">Proof</p>
-        <h2 class="h2">We Didn&rsquo;t Wait for Money</h2>
-        <p class="sub">The machine is already running.</p>
-      </div>
-      <div style="max-width:660px" class="rv">
-        <div class="prog" data-pct="100"><div class="prog-top"><span class="prog-name">Teams Assembled and Operational</span><span class="prog-pct">100%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
-        <div class="prog" data-pct="85"><div class="prog-top"><span class="prog-name">Data Collection &amp; Baseline Surveys Active</span><span class="prog-pct">85%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
-        <div class="prog" data-pct="75"><div class="prog-top"><span class="prog-name">Digital Infrastructure Built</span><span class="prog-pct">75%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
-        <div class="prog" data-pct="70"><div class="prog-top"><span class="prog-name">MVP Intelligence System Operational</span><span class="prog-pct">70%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
-        <div class="prog" data-pct="60"><div class="prog-top"><span class="prog-name">Stakeholder Engagements Underway</span><span class="prog-pct">60%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
-      </div>
-      <div class="hl-box rv" style="margin-top:24px"><p>This work supports massive investments estimated in the billions of dollars. ALIGN is the key that unlocks these investments — providing the certainty that global capital requires before committing.</p></div>
+  </div>
+</section>
+
+<!-- ================================================================
+     12. MOMENTUM — PROOF
+     ================================================================ -->
+<section class="sec sec--s2" id="momentum">
+  <div class="sec-inner">
+    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_12: Proof</span></div>
+    <div class="sec-head rv">
+      <p class="label">Proof</p>
+      <h2 class="h2">We Didn&rsquo;t Wait for Money</h2>
+      <p class="sub">The machine is already running.</p>
     </div>
+    <div style="max-width:660px" class="rv">
+      <div class="prog" data-pct="100"><div class="prog-top"><span class="prog-name">Teams Assembled and Operational</span><span class="prog-pct">100%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
+      <div class="prog" data-pct="85"><div class="prog-top"><span class="prog-name">Data Collection &amp; Baseline Surveys Active</span><span class="prog-pct">85%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
+      <div class="prog" data-pct="75"><div class="prog-top"><span class="prog-name">Digital Infrastructure Built</span><span class="prog-pct">75%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
+      <div class="prog" data-pct="70"><div class="prog-top"><span class="prog-name">MVP Intelligence System Operational</span><span class="prog-pct">70%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
+      <div class="prog" data-pct="60"><div class="prog-top"><span class="prog-name">Stakeholder Engagements Underway</span><span class="prog-pct">60%</span></div><div class="prog-track"><div class="prog-fill"></div></div></div>
+    </div>
+    <div class="hl-box rv" style="margin-top:28px"><p>This work supports massive investments estimated in the billions of dollars. ALIGN is the key that unlocks these investments — providing the certainty that global capital requires before committing.</p></div>
   </div>
 </section>
 
@@ -744,7 +785,7 @@ ul{list-style:none}
 <section class="sec sec--s" id="roadmap">
   <div class="render-bg"><img src="assets/diagrams/corridor-abstract.png" alt="" style="opacity:.06"></div>
   <div class="sec-inner">
-    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Section_09: Timeline</span></div>
+    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_13: Timeline</span></div>
     <div class="sec-head rv">
       <p class="label">Timeline</p>
       <h2 class="h2">The 2026 Window</h2>
@@ -755,23 +796,30 @@ ul{list-style:none}
       <div class="tl-phase"><div class="tl-dot"></div><div class="tl-label">Phase 2 — 3–9 Months</div><div class="tl-title">Institutional Anchoring &amp; Digital Twin v1</div><ul class="tl-items"><li>Institutional partnerships formalized</li><li>Digital Twin v1 deployed and operational</li><li>First feasibility studies in production</li><li>Round Table expansion underway</li></ul></div>
       <div class="tl-phase"><div class="tl-dot"></div><div class="tl-label">Phase 3 — 9–18 Months</div><div class="tl-title">Control Room Activation &amp; Capital Deployment</div><ul class="tl-items"><li>Unified Operations Center fully operational</li><li>Capital deployment into first SPV ventures</li><li>Full corridor intelligence coverage active</li><li>Strategic investment pipeline flowing</li></ul></div>
     </div>
-    <!-- Pipeline -->
-    <div class="sub-gap">
-      <div class="sec-head rv">
-        <p class="label">Opportunity</p>
-        <h2 class="h2">High-Impact Sectors Under Evaluation</h2>
-        <p class="sub">The corridor is a once-in-a-century opportunity for ownership and co-building.</p>
-      </div>
-      <div class="pipe-grid rv">
-        <div class="pipe"><div class="pipe-n">01</div><div class="pipe-name">Green Energy</div><div class="pipe-desc">SMRs &amp; hydrogen infrastructure</div></div>
-        <div class="pipe"><div class="pipe-n">02</div><div class="pipe-name">Agrivoltaics</div><div class="pipe-desc">Dual-use solar + agriculture</div></div>
-        <div class="pipe"><div class="pipe-n">03</div><div class="pipe-name">Smart Tunnels</div><div class="pipe-desc">Automated cross-border corridors</div></div>
-        <div class="pipe"><div class="pipe-n">04</div><div class="pipe-name">Disaster Recovery</div><div class="pipe-desc">Multi-national emergency systems</div></div>
-        <div class="pipe"><div class="pipe-n">05</div><div class="pipe-name">Cross-border Logistics</div><div class="pipe-desc">Smart dry ports &amp; autonomous freight</div></div>
-        <div class="pipe"><div class="pipe-n">06</div><div class="pipe-name">Digital Infrastructure</div><div class="pipe-desc">Subsea cables &amp; data centers</div></div>
-        <div class="pipe"><div class="pipe-n">07</div><div class="pipe-name">Water Systems</div><div class="pipe-desc">Smart desalination &amp; circular water</div></div>
-        <div class="pipe"><div class="pipe-n">08</div><div class="pipe-name">Cyber Security</div><div class="pipe-desc">Protecting the corridor&rsquo;s backbone</div></div>
-      </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     14. PIPELINE — OPPORTUNITY
+     ================================================================ -->
+<section class="sec sec--s2" id="pipeline">
+  <div class="tac-grid"></div>
+  <div class="sec-inner">
+    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_14: Pipeline</span></div>
+    <div class="sec-head rv">
+      <p class="label">Opportunity</p>
+      <h2 class="h2">High-Impact Sectors Under Evaluation</h2>
+      <p class="sub">The corridor is a once-in-a-century opportunity for ownership and co-building.</p>
+    </div>
+    <div class="pipe-grid rv">
+      <div class="pipe"><div class="pipe-n">01</div><div class="pipe-name">Green Energy</div><div class="pipe-desc">SMRs &amp; hydrogen infrastructure</div></div>
+      <div class="pipe"><div class="pipe-n">02</div><div class="pipe-name">Agrivoltaics</div><div class="pipe-desc">Dual-use solar + agriculture</div></div>
+      <div class="pipe"><div class="pipe-n">03</div><div class="pipe-name">Smart Tunnels</div><div class="pipe-desc">Automated cross-border corridors</div></div>
+      <div class="pipe"><div class="pipe-n">04</div><div class="pipe-name">Disaster Recovery</div><div class="pipe-desc">Multi-national emergency systems</div></div>
+      <div class="pipe"><div class="pipe-n">05</div><div class="pipe-name">Cross-border Logistics</div><div class="pipe-desc">Smart dry ports &amp; autonomous freight</div></div>
+      <div class="pipe"><div class="pipe-n">06</div><div class="pipe-name">Digital Infrastructure</div><div class="pipe-desc">Subsea cables &amp; data centers</div></div>
+      <div class="pipe"><div class="pipe-n">07</div><div class="pipe-name">Water Systems</div><div class="pipe-desc">Smart desalination &amp; circular water</div></div>
+      <div class="pipe"><div class="pipe-n">08</div><div class="pipe-name">Cyber Security</div><div class="pipe-desc">Protecting the corridor&rsquo;s backbone</div></div>
     </div>
   </div>
 </section>
@@ -779,11 +827,11 @@ ul{list-style:none}
 <!-- ================================================================
      10. CTA + CLOSE
      ================================================================ -->
-<section class="sec sec--s2" id="join">
+<section class="sec sec--s" id="join">
   <div class="tac-grid"></div>
   <div class="render-bg"><img src="assets/photos/cta-visual.png" alt="" style="opacity:.07;object-position:left bottom"></div>
   <div class="sec-inner">
-    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Section_10: Action</span></div>
+    <div class="hud rv"><img src="assets/logos/align-icon.svg" alt="" class="hud-logo"><span class="hud-code">Slide_15: Action</span></div>
     <div class="sec-head rv">
       <p class="label">Action</p>
       <h2 class="h2">Join the Cortex: Shape the Future</h2>
@@ -791,8 +839,15 @@ ul{list-style:none}
     </div>
     <div class="paths">
       <div class="path rv"><div class="path-num">Path 1</div><div class="path-title">Co-Fund the Study</div><div class="path-text">Joint funding of the feasibility research with full data access. Participate in shaping the intelligence foundation.</div><div class="path-benefit">Full data access + research partnership</div></div>
-      <div class="path path--feat rv rv-d1"><div class="path-num">Path 2</div><div class="path-title">Join the Alliance</div><div class="path-text">Join the global consortium (The Round Table) with an Advisory Board seat. Shape strategy, access intelligence, influence corridor direction.</div><div class="path-benefit">Round Table + Advisory Board seat</div></div>
+      <div class="path rv rv-d1"><div class="path-num">Path 2</div><div class="path-title">Join the Alliance</div><div class="path-text">Join the global consortium (The Round Table) with an Advisory Board seat. Shape strategy, access intelligence, influence corridor direction.</div><div class="path-benefit">Round Table + Advisory Board seat</div></div>
       <div class="path rv rv-d2"><div class="path-num">Path 3</div><div class="path-title">Shape the Future</div><div class="path-text">Influence the backbone of the region with direct partnership in SPV ventures. Co-own infrastructure defining trade routes for the next century.</div><div class="path-benefit">Regional influence + SPV partnership</div></div>
+    </div>
+    <!-- Contact -->
+    <div style="text-align:center;margin-top:48px;padding-top:32px;border-top:1px solid var(--border)" class="rv">
+      <p class="label" style="margin-bottom:10px">Contact</p>
+      <p style="font-size:18px;font-weight:600;color:var(--white);margin-bottom:4px">Dror Barak</p>
+      <p style="font-size:15px;color:var(--text-2);margin-bottom:8px">Founding Partner</p>
+      <a href="mailto:dror@align-gp.com" style="font-family:var(--mono);font-size:14px;color:var(--gold);letter-spacing:.5px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(201,160,80,.4)">dror@align-gp.com</a>
     </div>
   </div>
 </section>
