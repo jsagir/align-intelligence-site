@@ -408,6 +408,106 @@ ul{list-style:none}
 .cv-label,.cv-node{opacity:1}
 html{scroll-behavior:auto}
 }
+
+/* ================================================================
+   CORTEX DASHBOARD
+   ================================================================ */
+.cx-intro{text-align:center;padding:48px 24px 28px;max-width:700px;margin:0 auto}
+.cx-tag{font-family:var(--mono);font-size:12px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.cx-h{font-family:var(--sans);font-size:clamp(22px,3.5vw,32px);font-weight:600;color:var(--white);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px}
+.cx-sub{font-size:15px;color:var(--text-2);line-height:1.6;max-width:560px;margin:0 auto}
+.cx{max-width:var(--max);margin:0 auto;background:#040e1e;border:1px solid var(--border);border-radius:2px;overflow:hidden;position:relative}
+.cx::after{content:'';position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,212,255,.004) 3px,rgba(0,212,255,.004) 6px);z-index:50}
+.cx-top{display:flex;align-items:center;height:36px;padding:0 14px;background:var(--surface);border-bottom:1px solid var(--border);gap:8px;position:relative;z-index:2}
+.cx-logo{font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;white-space:nowrap}
+.cx-logo span{color:var(--text-3);margin:0 4px}
+.cx-live{display:flex;align-items:center;gap:5px;margin-left:auto}
+.cx-dot{width:5px;height:5px;border-radius:50%;background:#22C55E;animation:cxBk 2s infinite}
+@keyframes cxBk{0%,90%,100%{opacity:1}95%{opacity:.3}}
+.cx-st{font-family:var(--mono);font-size:8px;color:#22C55E;letter-spacing:1.5px;text-transform:uppercase}
+.cx-kpis{display:flex;gap:1px;margin-left:14px}
+.cx-kp{background:var(--card);border:1px solid rgba(201,160,80,.08);padding:3px 10px;text-align:center;min-width:76px}
+.cx-kp-v{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--white)}
+.cx-kp-l{font-family:var(--mono);font-size:6px;color:var(--text-3);letter-spacing:.8px;text-transform:uppercase;margin-top:1px}
+.cx-kp--g .cx-kp-v{color:var(--gold)}.cx-kp--c .cx-kp-v{color:var(--cyan)}
+.cx-clk{font-family:var(--mono);font-size:8px;color:var(--text-3);margin-left:10px;white-space:nowrap}
+.cx-layers{display:flex;align-items:center;height:30px;padding:0 14px;background:rgba(7,18,34,.8);border-bottom:1px solid rgba(201,160,80,.06);gap:3px;position:relative;z-index:2}
+.cx-layers-label{font-family:var(--mono);font-size:7px;color:var(--text-3);letter-spacing:2px;text-transform:uppercase;margin-right:8px}
+.lyr-btn{font-family:var(--mono);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;background:transparent;border:1px solid rgba(201,160,80,.08);color:var(--text-3);cursor:pointer;transition:all .2s}
+.lyr-btn:hover{border-color:rgba(201,160,80,.25);color:var(--text-2)}
+.lyr-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(201,160,80,.06)}
+.lyr-btn--cy.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,255,.05)}
+.lyr-btn--wh.active{border-color:var(--white);color:var(--white);background:rgba(255,255,255,.03)}
+.cx-layers-gap{flex:1}
+.cx-gap-bar{display:flex;align-items:center;gap:6px}
+.cx-gap-label{font-family:var(--mono);font-size:7px;color:var(--text-3);letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+.cx-gap-track{width:120px;height:4px;background:rgba(201,160,80,.08);border-radius:2px;overflow:hidden}
+.cx-gap-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--cyan));border-radius:2px;width:0;transition:width 1.5s ease}
+.cx-gap-pct{font-family:var(--mono);font-size:9px;color:var(--gold);font-weight:600}
+.cx-body{display:grid;grid-template-columns:168px 1fr 210px;height:520px}
+.cx-sb{background:var(--surface);border-right:1px solid var(--border);padding:10px;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;font-size:10px}
+.cx-sb::-webkit-scrollbar{display:none}
+.sb-t{font-family:var(--mono);font-size:7px;color:var(--text-3);text-transform:uppercase;letter-spacing:2px;margin-bottom:5px;padding-bottom:3px;border-bottom:1px solid rgba(201,160,80,.05)}
+.sb-t--gold{color:var(--gold)}.sb-t--cyan{color:var(--cyan)}.sb-t--wh{color:var(--white)}
+.sb-row{display:flex;align-items:center;gap:5px;padding:3px 0;color:var(--text-2);font-size:9px}
+.sb-d{width:4px;height:4px;border-radius:50%;flex-shrink:0}
+.sb-d--g{background:#22C55E}.sb-d--a{background:#F59E0B}.sb-d--c{background:var(--cyan);box-shadow:0 0 3px rgba(0,212,255,.4)}
+.sb-v{margin-left:auto;font-family:var(--mono);font-size:8px;color:var(--text-3)}
+.sb-box{background:var(--card);border:1px solid rgba(201,160,80,.1);padding:7px;margin:5px 0}
+.sb-box-l{font-family:var(--mono);font-size:6.5px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px}
+.sb-box-v{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--white)}
+.sb-box-v--g{color:var(--gold)}.sb-box-v--c{color:var(--cyan)}
+.sb-box-ch{font-family:var(--mono);font-size:7px;color:#22C55E;margin-top:1px}
+.sb-prog{margin-top:4px;height:3px;background:rgba(201,160,80,.08);border-radius:2px;overflow:hidden}
+.sb-prog-fill{height:100%;border-radius:2px;transition:width 1.2s ease}
+.sb-sec{margin-bottom:8px}
+.aci-ticker{background:var(--card);border:1px solid rgba(0,212,255,.1);padding:6px;margin:5px 0;overflow:hidden;max-height:130px}
+.aci-item{display:flex;gap:4px;padding:3px 0;border-bottom:1px solid rgba(0,212,255,.04);font-size:8px;line-height:1.3;color:var(--text-2)}
+.aci-item:last-child{border:none}
+.aci-badge{font-family:var(--mono);font-size:6px;padding:1px 4px;border-radius:1px;flex-shrink:0;margin-top:1px;letter-spacing:.5px}
+.aci-badge--h{background:rgba(201,160,80,.1);color:var(--gold);border:1px solid rgba(201,160,80,.2)}
+.aci-badge--s{background:rgba(0,212,255,.08);color:var(--cyan);border:1px solid rgba(0,212,255,.15)}
+.aci-badge--r{background:rgba(239,68,68,.08);color:#EF4444;border:1px solid rgba(239,68,68,.15)}
+.cx-map{position:relative;overflow:hidden;background:var(--bg)}
+.interline{transition:opacity .3s}.project-label{transition:opacity .3s}
+.cx-rp{background:var(--surface);border-left:1px solid var(--border);padding:8px;overflow-y:auto;scrollbar-width:none;font-size:9px}
+.cx-rp::-webkit-scrollbar{display:none}
+.rp-c{background:var(--card);border:1px solid rgba(201,160,80,.1);padding:8px;margin-bottom:5px}
+.rp-ct{font-family:var(--mono);font-size:7px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.rp-c--cy{border-color:rgba(0,212,255,.12)}.rp-c--cy .rp-ct{color:var(--cyan)}
+.rp-c--gold .rp-ct{color:var(--gold)}
+.rp-sr{display:flex;justify-content:space-between;padding:2.5px 0;border-bottom:1px solid rgba(201,160,80,.03);font-size:9px}
+.rp-sr:last-child{border:none}
+.rp-sr-n{color:var(--text-2)}.rp-sr-v{font-family:var(--mono);font-weight:500;color:var(--white)}
+.rp-fi{padding:3px 0;border-bottom:1px solid rgba(201,160,80,.03);font-size:8.5px;line-height:1.3}
+.rp-fi:last-child{border:none}
+.rp-fi-t{font-family:var(--mono);font-size:7px;color:var(--text-3);margin-bottom:1px}
+.rp-fi-tx{color:var(--text-2)}.rp-fi-tx b{color:var(--white);font-weight:500}
+.trl{display:flex;align-items:center;gap:4px;padding:3px 0;font-size:8.5px;color:var(--text-2)}
+.trl-bar{flex:1;height:3px;background:rgba(201,160,80,.08);border-radius:2px;overflow:hidden}
+.trl-fill{height:100%;border-radius:2px}
+.trl-fill--g{background:#22C55E}.trl-fill--a{background:#F59E0B}.trl-fill--gold{background:var(--gold)}
+.cx-bb{display:flex;align-items:center;height:26px;padding:0 12px;background:var(--surface);border-top:1px solid var(--border);gap:10px}
+.bb-seg{display:flex;align-items:center;gap:3px;font-family:var(--mono);font-size:7px;color:var(--text-3);letter-spacing:.6px;text-transform:uppercase}
+.bb-d{width:3.5px;height:3.5px;border-radius:50%}.bb-d--g{background:#22C55E}.bb-d--a{background:#F59E0B}
+.bb-r{margin-left:auto;font-family:var(--mono);font-size:7px;color:var(--text-3)}
+.bb-lbl{font-family:var(--mono);font-size:7px;color:var(--gold);letter-spacing:1.5px;opacity:.4}
+.cx-tt{position:absolute;pointer-events:none;opacity:0;transition:opacity .2s;background:rgba(7,18,34,.96);border:1px solid rgba(201,160,80,.3);padding:12px 14px;min-width:210px;max-width:270px;z-index:20;box-shadow:0 8px 32px rgba(0,0,0,.6)}
+.cx-tt.show{opacity:1}
+.cx-tt-name{font-family:var(--mono);font-size:9.5px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid rgba(201,160,80,.08)}
+.cx-tt-row{display:flex;justify-content:space-between;padding:2px 0;font-family:var(--mono);font-size:8.5px}
+.cx-tt-l{color:var(--text-2)}.cx-tt-v{font-weight:500;color:var(--white)}
+.cx-tt-v--g{color:#22C55E}.cx-tt-v--a{color:#F59E0B}.cx-tt-v--gold{color:var(--gold)}.cx-tt-v--cy{color:var(--cyan)}
+.cx-tt-div{height:1px;background:rgba(201,160,80,.06);margin:5px 0}
+.cx-tt-note{font-family:var(--sans);font-size:8px;color:var(--text-3);font-style:italic;margin-top:5px;line-height:1.35}
+.cx-tt-proj{margin-top:6px;padding-top:5px;border-top:1px solid rgba(0,212,255,.08)}
+.cx-tt-proj-label{font-family:var(--mono);font-size:7px;color:var(--cyan);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.cd-node{cursor:pointer;transition:transform .15s}.cd-node:hover{transform:scale(1.12)}
+@keyframes cxDf{from{stroke-dashoffset:20}to{stroke-dashoffset:0}}
+@keyframes cxFp{0%,100%{opacity:1}50%{opacity:.55}}
+.cx .df{stroke-dasharray:10,10;animation:cxDf 1.5s linear infinite}
+.cx .fp{animation:cxFp 3s ease-in-out infinite}
+@media(max-width:900px){.cx-body{grid-template-columns:1fr}.cx-sb,.cx-rp{display:none}.cx-body{height:400px}.cx-layers .lyr-btn{font-size:7px;padding:3px 8px}.cx-kpis{display:none}}
 </style>
 </head>
 <body>
@@ -691,6 +791,177 @@ html{scroll-behavior:auto}
     </div>
   </div>
 </section>
+
+<!-- ================================================================
+     CORTEX DASHBOARD (Interactive Prototype)
+     ================================================================ -->
+<div style="margin-top:48px" class="rv">
+<div class="cx-intro">
+  <div class="cx-tag">Live Prototype</div>
+  <div class="cx-h">The ALIGN Cortex in Action</div>
+  <div class="cx-sub">What the Unified Operations Center looks like when the corridor is running. Toggle layers. Hover any node for real-time intelligence.</div>
+</div>
+<div class="cx" id="cortexDash">
+  <div class="cx-top">
+    <div class="cx-logo">ALIGN CORTEX <span>//</span> STRATEGIC OPS</div>
+    <div class="cx-live"><div class="cx-dot"></div><div class="cx-st">ACI Active</div></div>
+    <div class="cx-kpis">
+      <div class="cx-kp cx-kp--g"><div class="cx-kp-v">40%</div><div class="cx-kp-l">Transit &Delta;</div></div>
+      <div class="cx-kp"><div class="cx-kp-v fp">$5.4B</div><div class="cx-kp-l">Annual Savings</div></div>
+      <div class="cx-kp cx-kp--c"><div class="cx-kp-v">$1.42B</div><div class="cx-kp-l">Gap Bridged</div></div>
+      <div class="cx-kp"><div class="cx-kp-v">18%</div><div class="cx-kp-l">Target IRR</div></div>
+    </div>
+    <div class="cx-clk" id="cxClk"></div>
+  </div>
+  <div class="cx-layers">
+    <div class="cx-layers-label">Layers</div>
+    <button class="lyr-btn active" data-layer="skeleton" id="lyrSkel">The Skeleton</button>
+    <button class="lyr-btn lyr-btn--cy active" data-layer="nerves" id="lyrNerv">Nervous System</button>
+    <button class="lyr-btn lyr-btn--wh active" data-layer="muscle" id="lyrMusc">The Muscle</button>
+    <div class="cx-layers-gap"></div>
+    <div class="cx-gap-bar">
+      <div class="cx-gap-label">$5B Gap</div>
+      <div class="cx-gap-track"><div class="cx-gap-fill" id="gapFill"></div></div>
+      <div class="cx-gap-pct">28%</div>
+    </div>
+  </div>
+  <div class="cx-body">
+    <div class="cx-sb">
+      <div class="sb-sec"><div class="sb-t sb-t--gold">Force 1 &mdash; TFT Engine</div>
+        <div class="sb-box"><div class="sb-box-l">Feasibility Gap Bridged</div><div class="sb-box-v sb-box-v--g fp">$1.42B</div><div class="sb-prog"><div class="sb-prog-fill" style="width:28%;background:var(--gold)"></div></div><div class="sb-box-ch">of $5B target</div></div>
+        <div class="sb-row"><div class="sb-d sb-d--g"></div>Bankable Studies<div class="sb-v" style="color:#22C55E">3</div></div>
+        <div class="sb-row"><div class="sb-d sb-d--a"></div>In Production<div class="sb-v" style="color:#F59E0B">5</div></div>
+        <div class="sb-row"><div class="sb-d sb-d--g"></div>SFL Compliance<div class="sb-v" style="color:#22C55E">100%</div></div>
+      </div>
+      <div class="sb-sec"><div class="sb-t sb-t--cyan">Force 2 &mdash; Corridor-X</div>
+        <div class="sb-row"><div class="sb-d sb-d--g"></div>Green H&#8322;<div class="sb-v" style="color:#22C55E">TRL 8</div></div>
+        <div class="sb-row"><div class="sb-d sb-d--a"></div>SMR Nuclear<div class="sb-v" style="color:#F59E0B">TRL 6</div></div>
+        <div class="sb-row"><div class="sb-d sb-d--a"></div>Smart Tunnels<div class="sb-v" style="color:#F59E0B">TRL 5</div></div>
+        <div class="sb-row"><div class="sb-d sb-d--g"></div>Smart Desal<div class="sb-v" style="color:#22C55E">TRL 9</div></div>
+        <div class="sb-row"><div class="sb-d sb-d--g"></div>Autonomous Frt.<div class="sb-v" style="color:#22C55E">TRL 7</div></div>
+      </div>
+      <div class="sb-sec"><div class="sb-t sb-t--wh">Force 3 &mdash; Intel Core</div>
+        <div class="sb-box"><div class="sb-box-l">Digital Twin Signals</div><div class="sb-box-v sb-box-v--c fp">1,247</div><div class="sb-box-ch">142 new today</div></div>
+        <div class="sb-row"><div class="sb-d sb-d--c"></div>HUMINT Sources<div class="sb-v">47</div></div>
+        <div class="sb-row"><div class="sb-d sb-d--c"></div>SIGINT Agents<div class="sb-v">1,105</div></div>
+        <div class="sb-row"><div class="sb-d sb-d--g"></div>AlignOS<div class="sb-v" style="color:#22C55E">v2.1</div></div>
+      </div>
+      <div class="sb-sec"><div class="sb-t sb-t--cyan">ACI Intelligence Feed</div>
+        <div class="aci-ticker">
+          <div class="aci-item"><span class="aci-badge aci-badge--h">HUMINT</span>KSA regulatory shift on water PPP &mdash; monitoring</div>
+          <div class="aci-item"><span class="aci-badge aci-badge--s">SIGINT</span>Suez backlog affecting multimodal routing &mdash; reroute active</div>
+          <div class="aci-item"><span class="aci-badge aci-badge--h">HUMINT</span>UAE ports expansion tender published &mdash; opportunity flagged</div>
+          <div class="aci-item"><span class="aci-badge aci-badge--s">SIGINT</span>EU TEN-T east corridor +&euro;1.2B &mdash; deal flow signal</div>
+          <div class="aci-item"><span class="aci-badge aci-badge--r">ALERT</span>Moving Target: Jordan rail budget approval pending vote</div>
+        </div>
+      </div>
+    </div>
+    <div class="cx-map" id="cxMap">
+      <svg viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="cxGl"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="cxGl2"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <radialGradient id="cxNg" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C9A050" stop-opacity=".12"/><stop offset="100%" stop-color="#C9A050" stop-opacity="0"/></radialGradient>
+          <radialGradient id="cxNc" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#00D4FF" stop-opacity=".1"/><stop offset="100%" stop-color="#00D4FF" stop-opacity="0"/></radialGradient>
+          <linearGradient id="cxCg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C9A050" stop-opacity=".08"/><stop offset="20%" stop-color="#C9A050" stop-opacity=".5"/><stop offset="80%" stop-color="#C9A050" stop-opacity=".5"/><stop offset="100%" stop-color="#C9A050" stop-opacity=".08"/></linearGradient>
+          <linearGradient id="cxProsp" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C9A050"/><stop offset="50%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#22C55E"/></linearGradient>
+          <pattern id="cxGr" width="40" height="40" patternUnits="userSpaceOnUse"><line x1="0" y1="40" x2="40" y2="40" stroke="rgba(201,160,80,.03)" stroke-width=".5"/><line x1="40" y1="0" x2="40" y2="40" stroke="rgba(201,160,80,.03)" stroke-width=".5"/></pattern>
+        </defs>
+        <rect width="800" height="520" fill="url(#cxGr)"/>
+        <path d="M55,130 L85,110 L115,120 L140,100 L180,105 L200,90 L220,110" stroke="rgba(201,160,80,.035)" fill="none"/>
+        <path d="M445,220 Q500,270 520,350 Q540,370 580,360 Q620,320 630,270 Q600,230 545,210" stroke="rgba(201,160,80,.025)" fill="rgba(201,160,80,.005)"/>
+        <path d="M700,170 Q720,250 710,330 Q690,370 670,350 Q680,270 690,210" stroke="rgba(201,160,80,.025)" fill="rgba(201,160,80,.005)"/>
+        <!-- Skeleton Layer -->
+        <g class="layer-skeleton">
+          <path d="M720,250 C650,230 600,220 540,240 C480,260 440,230 380,210 C340,195 280,190 240,170 C200,150 150,135 80,140" stroke="url(#cxCg)" stroke-width="3.5" fill="none" filter="url(#cxGl)"/>
+          <path d="M720,250 C650,230 600,220 540,240 C480,260 440,230 380,210 C340,195 280,190 240,170 C200,150 150,135 80,140" stroke="#C9A050" stroke-width="1.2" fill="none" opacity=".3" class="df"/>
+          <circle r="2.5" fill="#C9A050" filter="url(#cxGl)"><animateMotion path="M720,250 C650,230 600,220 540,240 C480,260 440,230 380,210 C340,195 280,190 240,170 C200,150 150,135 80,140" dur="5s" repeatCount="indefinite"/></circle>
+          <circle r="2" fill="#dfc477" opacity=".5"><animateMotion path="M720,250 C650,230 600,220 540,240 C480,260 440,230 380,210 C340,195 280,190 240,170 C200,150 150,135 80,140" dur="5s" repeatCount="indefinite" begin="2.5s"/></circle>
+          <line x1="540" y1="240" x2="558" y2="310" stroke="#C9A050" stroke-width=".6" opacity=".1" stroke-dasharray="3,4"/>
+          <line x1="380" y1="210" x2="350" y2="270" stroke="#C9A050" stroke-width=".6" opacity=".1" stroke-dasharray="3,4"/>
+        </g>
+        <!-- Nervous System Layer -->
+        <g class="layer-nerves">
+          <ellipse cx="400" cy="260" rx="320" ry="105" fill="none" stroke="#00D4FF" stroke-width=".25" opacity=".06" stroke-dasharray="8,16"/>
+          <circle r="1.5" fill="#00D4FF" opacity=".6"><animateMotion path="M720,250 C650,230 600,220 540,240 C480,260 440,230 380,210 C340,195 280,190 240,170 C200,150 150,135 80,140" dur="5s" repeatCount="indefinite" begin="1.2s"/></circle>
+        </g>
+        <!-- Muscle Layer -->
+        <g class="layer-muscle">
+          <path class="interline" d="M410,240 C440,220 500,215 590,230" stroke="url(#cxProsp)" stroke-width="1.8" fill="none" stroke-dasharray="6,4" opacity=".25" filter="url(#cxGl)"><animate attributeName="opacity" values=".15;.35;.15" dur="3s" repeatCount="indefinite"/></path>
+          <path class="interline" d="M380,210 C395,225 405,235 410,240" stroke="url(#cxProsp)" stroke-width="1.5" fill="none" stroke-dasharray="5,4" opacity=".2"><animate attributeName="opacity" values=".12;.3;.12" dur="3s" repeatCount="indefinite" begin=".5s"/></path>
+          <g class="project-label" transform="translate(440,208)"><rect x="0" y="0" width="90" height="16" rx="1" fill="rgba(10,22,40,.9)" stroke="rgba(34,197,94,.15)" stroke-width=".4"/><text x="6" y="11" font-family="JetBrains Mono,monospace" font-size="6" fill="#22C55E" letter-spacing=".8">PROSPERITY</text><text x="62" y="11" font-family="JetBrains Mono,monospace" font-size="5.5" fill="#6e82a0">600MW&harr;200MCM</text></g>
+        </g>
+        <!-- Nodes -->
+        <g class="cd-node" data-node="india"><circle cx="720" cy="250" r="24" fill="url(#cxNg)"/><circle cx="720" cy="250" r="8" fill="#0f1f36" stroke="#C9A050" stroke-width="1.3" filter="url(#cxGl)"/><circle cx="720" cy="250" r="13" fill="#C9A050" opacity="0"><animate attributeName="r" values="9;18;9" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".08;0;.08" dur="3s" repeatCount="indefinite"/></circle><text x="720" y="234" font-family="JetBrains Mono,monospace" font-size="8" fill="#C9A050" text-anchor="middle" letter-spacing="1.5" font-weight="600">INDIA</text></g>
+        <rect x="733" y="256" width="48" height="22" rx="1" fill="rgba(10,22,40,.9)" stroke="rgba(201,160,80,.1)" stroke-width=".4"/><text x="738" y="265" font-family="JetBrains Mono,monospace" font-size="5" fill="#6e82a0">MUNDRA</text><text x="738" y="274" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#C9A050" font-weight="600">4.2 GW</text>
+        <g class="cd-node" data-node="uae"><circle cx="595" cy="235" r="22" fill="url(#cxNc)"/><circle cx="595" cy="235" r="7.5" fill="#0f1f36" stroke="#00D4FF" stroke-width="1.3" filter="url(#cxGl)"/><circle cx="595" cy="235" r="11" fill="#00D4FF" opacity="0"><animate attributeName="r" values="7;15;7" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".07;0;.07" dur="2.5s" repeatCount="indefinite"/></circle><text x="595" y="218" font-family="JetBrains Mono,monospace" font-size="8" fill="#00D4FF" text-anchor="middle" letter-spacing="1.5" font-weight="600">UAE</text></g>
+        <rect x="571" y="248" width="48" height="22" rx="1" fill="rgba(10,22,40,.9)" stroke="rgba(0,212,255,.1)" stroke-width=".4"/><text x="576" y="257" font-family="JetBrains Mono,monospace" font-size="5" fill="#6e82a0">ADNOC</text><text x="576" y="266" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#00D4FF" font-weight="600">320 ML</text>
+        <g class="cd-node" data-node="ksa"><circle cx="488" cy="250" r="24" fill="url(#cxNg)"/><circle cx="488" cy="250" r="8" fill="#0f1f36" stroke="#C9A050" stroke-width="1.3" filter="url(#cxGl)"/><text x="488" y="234" font-family="JetBrains Mono,monospace" font-size="8" fill="#C9A050" text-anchor="middle" letter-spacing="1.5" font-weight="600">KSA</text></g>
+        <rect x="502" y="246" width="48" height="22" rx="1" fill="rgba(10,22,40,.9)" stroke="rgba(201,160,80,.1)" stroke-width=".4"/><text x="507" y="255" font-family="JetBrains Mono,monospace" font-size="5" fill="#6e82a0">NEOM H&#8322;</text><text x="507" y="264" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#C9A050" font-weight="600">600 t/d</text>
+        <g class="cd-node" data-node="jordan"><circle cx="410" cy="240" r="14" fill="url(#cxNg)"/><circle cx="410" cy="240" r="5.5" fill="#0f1f36" stroke="#22C55E" stroke-width="1" filter="url(#cxGl)"/><text x="410" y="226" font-family="JetBrains Mono,monospace" font-size="7.5" fill="#22C55E" text-anchor="middle" letter-spacing="1" font-weight="500">JORDAN</text></g>
+        <g class="cd-node" data-node="israel"><circle cx="380" cy="210" r="22" fill="url(#cxNc)"/><circle cx="380" cy="210" r="8" fill="#0f1f36" stroke="#00D4FF" stroke-width="1.3" filter="url(#cxGl)"/><circle cx="380" cy="210" r="12" fill="#00D4FF" opacity="0"><animate attributeName="r" values="8;16;8" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".07;0;.07" dur="2.8s" repeatCount="indefinite"/></circle><text x="380" y="193" font-family="JetBrains Mono,monospace" font-size="8" fill="#00D4FF" text-anchor="middle" letter-spacing="1.5" font-weight="600">ISRAEL</text></g>
+        <rect x="347" y="222" width="58" height="22" rx="1" fill="rgba(10,22,40,.9)" stroke="rgba(0,212,255,.1)" stroke-width=".4"/><text x="352" y="231" font-family="JetBrains Mono,monospace" font-size="5" fill="#6e82a0">HAIFA / INTEL</text><text x="352" y="240" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#00D4FF" font-weight="600">AlignOS</text>
+        <g class="cd-node" data-node="greece"><circle cx="240" cy="170" r="15" fill="url(#cxNg)"/><circle cx="240" cy="170" r="6" fill="#0f1f36" stroke="#C9A050" stroke-width=".9"/><text x="240" y="157" font-family="JetBrains Mono,monospace" font-size="7" fill="#C9A050" text-anchor="middle" letter-spacing="1">GREECE</text></g>
+        <g class="cd-node" data-node="eu"><circle cx="80" cy="140" r="18" fill="url(#cxNc)"/><circle cx="80" cy="140" r="7" fill="#0f1f36" stroke="#00D4FF" stroke-width="1.1" filter="url(#cxGl)"/><text x="80" y="124" font-family="JetBrains Mono,monospace" font-size="8" fill="#00D4FF" text-anchor="middle" letter-spacing="1.5" font-weight="600">EU</text></g>
+        <rect x="40" y="151" width="52" height="22" rx="1" fill="rgba(10,22,40,.9)" stroke="rgba(0,212,255,.1)" stroke-width=".4"/><text x="45" y="160" font-family="JetBrains Mono,monospace" font-size="5" fill="#6e82a0">TEN-T</text><text x="45" y="169" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#00D4FF" font-weight="600">3.1 GW</text>
+        <!-- Info panels -->
+        <rect x="285" y="360" width="228" height="26" rx="1" fill="rgba(10,22,40,.88)" stroke="rgba(0,212,255,.08)" stroke-width=".4"/><text x="298" y="371" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#00D4FF" letter-spacing="1.2">DIGITAL TWIN</text><text x="298" y="381" font-family="Inter,sans-serif" font-size="7" fill="#6e82a0">Multi-layered geospatial intelligence &mdash; AlignOS v2.1</text>
+        <rect x="285" y="392" width="228" height="26" rx="1" fill="rgba(10,22,40,.88)" stroke="rgba(34,197,94,.08)" stroke-width=".4"/><circle cx="296" cy="405" r="2.5" fill="#22C55E" opacity=".7"/><text x="304" y="403" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#22C55E" letter-spacing="1">NEXUS ENGINE</text><text x="304" y="413" font-family="Inter,sans-serif" font-size="7" fill="#6e82a0">SPV pipeline: 3 active | PE Fund: $180M committed</text>
+        <rect x="285" y="424" width="228" height="26" rx="1" fill="rgba(10,22,40,.88)" stroke="rgba(245,158,11,.08)" stroke-width=".4"/><circle cx="296" cy="437" r="2.5" fill="#F59E0B" opacity=".7"/><text x="304" y="435" font-family="JetBrains Mono,monospace" font-size="6.5" fill="#F59E0B" letter-spacing="1">MOVING TARGET</text><text x="304" y="445" font-family="Inter,sans-serif" font-size="7" fill="#6e82a0">Jordan rail vote pending | Suez congestion reroute</text>
+        <!-- Legend -->
+        <g transform="translate(28,430)"><text font-family="JetBrains Mono,monospace" font-size="6" fill="#3e5270" letter-spacing="1.2">LEGEND</text><line x1="0" y1="12" x2="14" y2="12" stroke="#C9A050" stroke-width="1.5"/><text x="18" y="14" font-family="JetBrains Mono,monospace" font-size="5.5" fill="#6e82a0">Skeleton</text><line x1="0" y1="24" x2="14" y2="24" stroke="#00D4FF" stroke-width=".8" stroke-dasharray="3,3"/><text x="18" y="26" font-family="JetBrains Mono,monospace" font-size="5.5" fill="#6e82a0">Nerves</text><line x1="0" y1="36" x2="14" y2="36" stroke="url(#cxProsp)" stroke-width="1.5"/><text x="18" y="38" font-family="JetBrains Mono,monospace" font-size="5.5" fill="#6e82a0">Muscle</text></g>
+        <text x="400" y="490" font-family="JetBrains Mono,monospace" font-size="7" fill="#C9A050" text-anchor="middle" letter-spacing="3" opacity=".3">I M E C    S T R A T E G I C    C O R T E X</text>
+      </svg>
+      <div class="cx-tt" id="cxTT"></div>
+    </div>
+    <div class="cx-rp">
+      <div class="rp-c rp-c--gold"><div class="rp-ct">TRL Deployment Tracker</div>
+        <div class="trl">Green H&#8322;<div class="trl-bar"><div class="trl-fill trl-fill--g" style="width:88%"></div></div><div class="trl-v">TRL 8</div></div>
+        <div class="trl">Smart Desal<div class="trl-bar"><div class="trl-fill trl-fill--g" style="width:100%"></div></div><div class="trl-v">TRL 9</div></div>
+        <div class="trl">Auton. Freight<div class="trl-bar"><div class="trl-fill trl-fill--g" style="width:75%"></div></div><div class="trl-v">TRL 7</div></div>
+        <div class="trl">SMR Nuclear<div class="trl-bar"><div class="trl-fill trl-fill--a" style="width:60%"></div></div><div class="trl-v">TRL 6</div></div>
+        <div class="trl">Smart Tunnel<div class="trl-bar"><div class="trl-fill trl-fill--a" style="width:50%"></div></div><div class="trl-v">TRL 5</div></div>
+      </div>
+      <div class="rp-c"><div class="rp-ct">Throughput (24h)</div>
+        <svg viewBox="0 0 190 50" width="100%" height="44"><line x1="0" y1="12" x2="190" y2="12" stroke="rgba(201,160,80,.04)" stroke-width=".4"/><line x1="0" y1="25" x2="190" y2="25" stroke="rgba(201,160,80,.04)" stroke-width=".4"/><line x1="0" y1="38" x2="190" y2="38" stroke="rgba(201,160,80,.04)" stroke-width=".4"/><path d="M0,38 L16,34 L32,36 L48,28 L64,31 L80,21 L96,25 L112,18 L128,20 L144,12 L160,15 L176,10 L190,7" fill="none" stroke="#C9A050" stroke-width="1.2" stroke-linecap="round" filter="url(#cxGl)"/><path d="M0,38 L16,34 L32,36 L48,28 L64,31 L80,21 L96,25 L112,18 L128,20 L144,12 L160,15 L176,10 L190,7 L190,50 L0,50Z" fill="#C9A050" opacity=".04"/><circle cx="190" cy="7" r="2.5" fill="#C9A050"><animate attributeName="r" values="2;3.5;2" dur="1.5s" repeatCount="indefinite"/></circle></svg>
+      </div>
+      <div class="rp-c rp-c--cy"><div class="rp-ct">Feasibility Pipeline</div>
+        <div class="rp-sr"><span class="rp-sr-n">Bankable (done)</span><span class="rp-sr-v" style="color:#22C55E">3</span></div>
+        <div class="rp-sr"><span class="rp-sr-n">In production</span><span class="rp-sr-v" style="color:#F59E0B">5</span></div>
+        <div class="rp-sr"><span class="rp-sr-n">Scoping</span><span class="rp-sr-v">4</span></div>
+        <div class="rp-sr"><span class="rp-sr-n">SFL compliance</span><span class="rp-sr-v" style="color:#22C55E">100%</span></div>
+      </div>
+      <div class="rp-c"><div class="rp-ct">Dead &rarr; Alive Projects</div>
+        <div class="rp-sr"><span class="rp-sr-n">Prosperity</span><span class="rp-sr-v" style="color:#22C55E">Active</span></div>
+        <div class="rp-sr"><span class="rp-sr-n">Red-Dead Canal</span><span class="rp-sr-v" style="color:#F59E0B">Phase 1</span></div>
+        <div class="rp-sr"><span class="rp-sr-n">Gaza Marine</span><span class="rp-sr-v" style="color:#F59E0B">Scoping</span></div>
+      </div>
+      <div class="rp-c rp-c--gold"><div class="rp-ct">PE Fund / SPV</div>
+        <div class="rp-sr"><span class="rp-sr-n">Fund target</span><span class="rp-sr-v" style="color:var(--gold)">$500M&ndash;1B</span></div>
+        <div class="rp-sr"><span class="rp-sr-n">Committed</span><span class="rp-sr-v" style="color:#22C55E">$180M</span></div>
+        <div class="rp-sr"><span class="rp-sr-n">Active SPVs</span><span class="rp-sr-v">3</span></div>
+        <div class="rp-sr"><span class="rp-sr-n">Pipeline</span><span class="rp-sr-v" style="color:#F59E0B">7</span></div>
+      </div>
+      <div class="rp-c rp-c--cy"><div class="rp-ct">Opportunity Mining</div>
+        <div class="rp-fi"><div class="rp-fi-t">14:32 ACI</div><div class="rp-fi-tx"><b>UAE</b> &mdash; Abu Dhabi Ports expansion tender</div></div>
+        <div class="rp-fi"><div class="rp-fi-t">13:18 ACI</div><div class="rp-fi-tx"><b>KSA</b> &mdash; NEOM desal phase 2 RFP</div></div>
+        <div class="rp-fi"><div class="rp-fi-t">11:05 ACI</div><div class="rp-fi-tx"><b>EU</b> &mdash; TEN-T +&euro;1.2B east corridors</div></div>
+        <div class="rp-fi"><div class="rp-fi-t">09:47 ACI</div><div class="rp-fi-tx"><b>India</b> &mdash; Mundra throughput +12% MoM</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="cx-bb">
+    <div class="bb-lbl">CORRIDOR</div>
+    <div class="bb-seg"><div class="bb-d bb-d--g"></div>IND&rarr;UAE</div>
+    <div class="bb-seg"><div class="bb-d bb-d--g"></div>UAE&rarr;KSA</div>
+    <div class="bb-seg"><div class="bb-d bb-d--g"></div>KSA&rarr;JOR</div>
+    <div class="bb-seg"><div class="bb-d bb-d--g"></div>JOR&rarr;ISR</div>
+    <div class="bb-seg"><div class="bb-d bb-d--a"></div>ISR&rarr;GRC</div>
+    <div class="bb-seg"><div class="bb-d bb-d--g"></div>GRC&rarr;EU</div>
+    <div class="bb-r" id="cxClk2"></div>
+  </div>
+</div>
+</div>
 
 <!-- ================================================================
      4. THE CORTEX
@@ -1160,6 +1431,20 @@ html{scroll-behavior:auto}
       modal.innerHTML='';modal.appendChild(clone);modal.classList.add('open');document.body.style.overflow='hidden';
     });
   });
+})();
+</script>
+<script>
+// Cortex Dashboard
+(function(){
+  var nd={india:{name:'INDIA \u2014 MUNDRA PORT NODE',rows:[['Energy Capacity','4.2 GW','gold'],['Solar Ramp','Ahead of schedule','g'],['H\u2082 Pipeline','Phase 2 Build','a'],['Port Throughput','1,240 TEU/day',''],['Mundra-Jebel Ali','Active link','g']],extra:[['Desal Capacity','180 ML/day','cy'],['Data Latency','12ms to UAE','']],note:'Mundra port throughput +12% MoM. Solar capacity ramp ahead of schedule. Key eastern terminus for IMEC.'},uae:{name:'UAE \u2014 ADNOC / JEBEL ALI NODE',rows:[['Water Production','320 ML/day','cy'],['ADNOC Integration','Phase 3 \u2014 AVEVA','g'],['Jebel Ali Hub','Smart Port Active','g'],['Energy Export','2.8 GW to grid','gold'],['AI Agents','47 monitors','cy']],extra:[['Prosperity Link','\u2194 Jordan 200MCM','g'],['Port Expansion','Tender published','a']],note:'ADNOC Unified Ops Center fully integrated. Abu Dhabi Ports expansion tender published today.',projects:[{name:'PROSPERITY BLUE',detail:'200MCM/yr desalinated water for Jordan energy-water swap'}]},ksa:{name:'KSA \u2014 LOGISTICS BACKBONE',rows:[['North-South Rail','Operational','g'],['NEOM Green H\u2082','600 tonnes/day','gold'],['Vision 2030 Align','94%','g'],['Smart Tunnel','TFT Phase 2','a'],['Dry Port Riyadh','Active','g']],extra:[['Landbridge','Integration underway','a'],['H\u2082 Company','$8.4B commissioning','gold']],note:'NEOM Green Hydrogen Company ($8.4B) in commissioning phase. KSA Landbridge rail integration underway.',projects:[{name:'NEOM H\u2082',detail:'$8.4B green hydrogen \u2014 600 tonnes/day at full capacity'}]},jordan:{name:'JORDAN \u2014 THE HINGE NODE',rows:[['Prosperity Green','600MW Solar','g'],['Red-Dead Canal','Revival Phase 1','a'],['Rail Backbone','$2.3B Proposed','a'],['Water Receive','200MCM from ISR/UAE','cy']],note:'Identified as the "Hinge and Bottleneck." Critical for trilateral energy-water swaps. Rail budget vote pending.',projects:[{name:'PROJECT PROSPERITY',detail:'600MW solar \u2192 Israel in exchange for 200MCM desalinated water'},{name:'RED-DEAD CANAL',detail:'Water conveyance + hydroelectric stabilization \u2014 revival phase'}]},israel:{name:'ISRAEL \u2014 TERMINUS & INTEL HUB',rows:[['Haifa Port (Adani)','Smart-Port Active','g'],['Prosperity Blue','200MCM/yr Desal','cy'],['Blue-Raman Cable','Terrestrial Link','g'],['Digital Twin Hub','AlignOS v2.1','cy'],['Cyber Defense','Level 5 / Green','g']],extra:[['HUMINT Sources','47 active','gold'],['SIGINT Agents','1,105 monitors','cy']],note:'Primary western-facing terminus. 70% Adani-owned Haifa. Serving as Intelligence Hub for all 3 Forces.',projects:[{name:'ALIGNOS',detail:'Digital Twin + ACI engine \u2014 primary intelligence processing'},{name:'BLUE-RAMAN',detail:'Subsea-terrestrial cable link India\u2192Israel\u2192EU'}]},greece:{name:'GREECE \u2014 PIRAEUS GATEWAY',rows:[['Piraeus Port','Phase 3 upgrade','g'],['EastMed Cable','Subsea link active','cy'],['Energy Transit','1.2 GW routing','gold'],['LNG Terminal','Operational','g']],note:'Piraeus smart port phase 3 approved. Key Mediterranean gateway for EU energy delivery.'},eu:{name:'EU \u2014 DESTINATION HUB',rows:[['Receiving Capacity','3.1 GW','cy'],['TEN-T Funding','+\u20AC1.2B east corridors','g'],['Offtake Agreements','4 signed','gold'],['EU Taxonomy','Green compliant','g']],extra:[['Carbon Offset','2.4M tonnes/yr','g'],['Import Diversity','+34% vs 2024','cy']],note:'TEN-T funding increased \u20AC1.2B. 4 energy offtake agreements in place. Full EU taxonomy compliance confirmed.'}};
+  var tt=document.getElementById('cxTT'),mapEl=document.getElementById('cxMap');
+  if(!tt||!mapEl)return;
+  function buildTT(d){var h='<div class="cx-tt-name">'+d.name+'</div>';d.rows.forEach(function(r){h+='<div class="cx-tt-row"><span class="cx-tt-l">'+r[0]+'</span><span class="cx-tt-v'+(r[2]?' cx-tt-v--'+r[2]:'')+'">'+r[1]+'</span></div>';});if(d.extra){h+='<div class="cx-tt-div"></div>';d.extra.forEach(function(r){h+='<div class="cx-tt-row"><span class="cx-tt-l">'+r[0]+'</span><span class="cx-tt-v'+(r[2]?' cx-tt-v--'+r[2]:'')+'">'+r[1]+'</span></div>';});}if(d.projects){h+='<div class="cx-tt-proj"><div class="cx-tt-proj-label">Key Projects</div>';d.projects.forEach(function(p){h+='<div class="cx-tt-row"><span class="cx-tt-l">'+p.name+'</span></div><div style="font-size:7.5px;color:#6e82a0;padding:0 0 3px;line-height:1.3">'+p.detail+'</div>';});h+='</div>';}if(d.note)h+='<div class="cx-tt-note">'+d.note+'</div>';return h;}
+  document.querySelectorAll('.cd-node').forEach(function(n){n.addEventListener('mouseenter',function(e){var k=this.getAttribute('data-node'),d=nd[k];if(!d)return;tt.innerHTML=buildTT(d);tt.classList.add('show');var mr=mapEl.getBoundingClientRect(),nr=this.getBoundingClientRect();var x=nr.left-mr.left+nr.width/2-20,y=nr.top-mr.top-tt.offsetHeight-14;if(x+270>mr.width)x=mr.width-280;if(x<10)x=10;if(y<10)y=nr.bottom-mr.top+12;tt.style.left=x+'px';tt.style.top=y+'px';});n.addEventListener('mouseleave',function(){tt.classList.remove('show');});});
+  document.querySelectorAll('.lyr-btn').forEach(function(btn){btn.addEventListener('click',function(){this.classList.toggle('active');var layer=this.getAttribute('data-layer');var els=document.querySelectorAll('.layer-'+layer);var visible=this.classList.contains('active');els.forEach(function(el){el.style.opacity=visible?'1':'0.05';el.style.transition='opacity .4s';});});});
+  function tick(){var n=new Date(),h=String((n.getUTCHours()+3)%24).padStart(2,'0'),m=String(n.getUTCMinutes()).padStart(2,'0'),s=String(n.getUTCSeconds()).padStart(2,'0'),t=h+':'+m+':'+s;var e1=document.getElementById('cxClk'),e2=document.getElementById('cxClk2');if(e1)e1.textContent=t+' UTC+3';if(e2)e2.textContent='ACI '+t+' | LAT 0.'+Math.floor(Math.random()*9)+Math.floor(Math.random()*9)+'ms';}
+  setInterval(tick,1000);tick();
+  setTimeout(function(){var g=document.getElementById('gapFill');if(g)g.style.width='28%';},500);
 })();
 </script>
 </body>
