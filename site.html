@@ -305,6 +305,15 @@ ul{list-style:none}
 .render-bg{position:absolute;inset:0;pointer-events:none;z-index:1}
 .render-bg img{width:100%;height:100%;object-fit:cover}
 
+/* --- Diagram styles --- */
+.dia-img{cursor:zoom-in;transition:opacity .2s}
+.dia-cap{font-size:15px;color:var(--text-2);line-height:1.6;max-width:640px;margin:14px auto 0;text-align:center}
+
+/* --- Diagram zoom modal --- */
+.dia-modal{position:fixed;inset:0;z-index:2000;background:rgba(2,11,26,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s;cursor:zoom-out}
+.dia-modal.open{opacity:1;pointer-events:auto}
+.dia-modal img,.dia-modal svg{max-width:95vw;max-height:90vh;width:auto;height:auto;object-fit:contain;border-radius:2px}
+
 /* --- Touch feedback --- */
 @media(hover:none){
 .card:active,.path:active,.pipe:active{transform:scale(.98);transition-duration:.1s}
@@ -517,35 +526,36 @@ html{scroll-behavior:auto}
     </div>
 
     <!-- Cortex Diagram (inline SVG) -->
-    <div style="text-align:center;margin:28px 0" class="rv">
-      <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width:660px;width:100%">
+    <div style="text-align:center;margin:32px 0" class="rv">
+      <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" class="dia-img" style="max-width:800px;width:90%">
         <defs>
           <filter id="cxG"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           <radialGradient id="cxC" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C9A050" stop-opacity=".18"/><stop offset="100%" stop-color="#C9A050" stop-opacity="0"/></radialGradient>
         </defs>
-        <line x1="120" y1="110" x2="264" y2="195" stroke="#C9A050" stroke-width="1" opacity=".25"/>
-        <line x1="300" y1="55" x2="300" y2="168" stroke="#00D4FF" stroke-width="1" opacity=".25"/>
-        <line x1="480" y1="110" x2="336" y2="195" stroke="#D4A040" stroke-width="1" opacity=".25"/>
+        <line x1="120" y1="110" x2="264" y2="195" stroke="#C9A050" stroke-width="1.5" opacity=".35"/>
+        <line x1="300" y1="55" x2="300" y2="168" stroke="#00D4FF" stroke-width="1.5" opacity=".35"/>
+        <line x1="480" y1="110" x2="336" y2="195" stroke="#D4A040" stroke-width="1.5" opacity=".35"/>
         <circle cx="300" cy="205" r="55" fill="url(#cxC)"/>
-        <circle cx="300" cy="205" r="38" fill="#0f1f36" stroke="#C9A050" stroke-width="1.5" filter="url(#cxG)"/>
-        <text x="300" y="200" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="#eef0f4" text-anchor="middle" letter-spacing="2">STRATEGIC</text>
-        <text x="300" y="213" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="#C9A050" text-anchor="middle" letter-spacing="2">CORTEX</text>
-        <circle cx="120" cy="90" r="26" fill="#0f1f36" stroke="#C9A050" stroke-width="1.5"/>
-        <text x="120" y="86" font-family="JetBrains Mono,monospace" font-size="6" fill="#C9A050" text-anchor="middle" letter-spacing="1">FORCE 1</text>
-        <text x="120" y="98" font-family="Inter,sans-serif" font-size="7" fill="#6e82a0" text-anchor="middle">TFT</text>
-        <circle cx="300" cy="36" r="26" fill="#0f1f36" stroke="#00D4FF" stroke-width="1.5"/>
-        <text x="300" y="32" font-family="JetBrains Mono,monospace" font-size="6" fill="#00D4FF" text-anchor="middle" letter-spacing="1">FORCE 2</text>
-        <text x="300" y="44" font-family="Inter,sans-serif" font-size="7" fill="#6e82a0" text-anchor="middle">Corridor X</text>
-        <circle cx="480" cy="90" r="26" fill="#0f1f36" stroke="#00D4FF" stroke-width="1.5"/>
-        <text x="480" y="86" font-family="JetBrains Mono,monospace" font-size="6" fill="#00D4FF" text-anchor="middle" letter-spacing="1">FORCE 3</text>
-        <text x="480" y="98" font-family="Inter,sans-serif" font-size="7" fill="#6e82a0" text-anchor="middle">Intel &amp; Data</text>
-        <circle r="2" fill="#00D4FF" opacity=".8"><animateMotion path="M300,55 L300,168" dur="2s" repeatCount="indefinite"/></circle>
-        <circle r="2" fill="#C9A050" opacity=".8"><animateMotion path="M120,110 L264,195" dur="2.5s" repeatCount="indefinite"/></circle>
-        <circle r="2" fill="#D4A040" opacity=".8"><animateMotion path="M480,110 L336,195" dur="2.2s" repeatCount="indefinite"/></circle>
-        <line x1="300" y1="245" x2="300" y2="270" stroke="#C9A050" stroke-width="1"/>
-        <polygon points="295,267 300,277 305,267" fill="#C9A050"/>
-        <text x="300" y="293" font-family="JetBrains Mono,monospace" font-size="7" fill="#C9A050" text-anchor="middle" letter-spacing="2.5">CERTAINTY</text>
+        <circle cx="300" cy="205" r="38" fill="#0f1f36" stroke="#C9A050" stroke-width="2" filter="url(#cxG)"/>
+        <text x="300" y="199" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#eef0f4" text-anchor="middle" letter-spacing="2">STRATEGIC</text>
+        <text x="300" y="214" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#C9A050" text-anchor="middle" letter-spacing="2">CORTEX</text>
+        <circle cx="120" cy="90" r="30" fill="#0f1f36" stroke="#C9A050" stroke-width="2"/>
+        <text x="120" y="85" font-family="JetBrains Mono,monospace" font-size="8" fill="#C9A050" text-anchor="middle" letter-spacing="1">FORCE 1</text>
+        <text x="120" y="99" font-family="Inter,sans-serif" font-size="9" fill="#6e82a0" text-anchor="middle">TFT</text>
+        <circle cx="300" cy="36" r="30" fill="#0f1f36" stroke="#00D4FF" stroke-width="2"/>
+        <text x="300" y="31" font-family="JetBrains Mono,monospace" font-size="8" fill="#00D4FF" text-anchor="middle" letter-spacing="1">FORCE 2</text>
+        <text x="300" y="45" font-family="Inter,sans-serif" font-size="9" fill="#6e82a0" text-anchor="middle">Corridor X</text>
+        <circle cx="480" cy="90" r="30" fill="#0f1f36" stroke="#00D4FF" stroke-width="2"/>
+        <text x="480" y="85" font-family="JetBrains Mono,monospace" font-size="8" fill="#00D4FF" text-anchor="middle" letter-spacing="1">FORCE 3</text>
+        <text x="480" y="99" font-family="Inter,sans-serif" font-size="9" fill="#6e82a0" text-anchor="middle">Intel &amp; Data</text>
+        <circle r="3" fill="#00D4FF" opacity=".8"><animateMotion path="M300,55 L300,168" dur="2s" repeatCount="indefinite"/></circle>
+        <circle r="3" fill="#C9A050" opacity=".8"><animateMotion path="M120,110 L264,195" dur="2.5s" repeatCount="indefinite"/></circle>
+        <circle r="3" fill="#D4A040" opacity=".8"><animateMotion path="M480,110 L336,195" dur="2.2s" repeatCount="indefinite"/></circle>
+        <line x1="300" y1="245" x2="300" y2="270" stroke="#C9A050" stroke-width="1.5"/>
+        <polygon points="294,267 300,278 306,267" fill="#C9A050"/>
+        <text x="300" y="295" font-family="JetBrains Mono,monospace" font-size="9" fill="#C9A050" text-anchor="middle" letter-spacing="3">CERTAINTY</text>
       </svg>
+      <p class="dia-cap">Three synchronized forces converging into the Strategic Cortex, producing actionable feasibility and certainty for investors.</p>
     </div>
 
     <div class="fc">
@@ -555,20 +565,20 @@ html{scroll-behavior:auto}
     </div>
 
     <!-- Convergence -->
-    <div style="text-align:center;padding:24px 0 0" class="rv">
-      <svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" style="max-width:460px;width:100%;display:block;margin:0 auto">
+    <div style="text-align:center;padding:28px 0 0" class="rv">
+      <svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" style="max-width:580px;width:85%;display:block;margin:0 auto">
         <defs><filter id="cvG"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-        <path d="M60,15 Q140,15 200,48" stroke="#C9A050" stroke-width="1.5" fill="none" opacity=".6"/>
-        <path d="M200,5 L200,48" stroke="#00D4FF" stroke-width="1.5" fill="none" opacity=".6"/>
-        <path d="M340,15 Q260,15 200,48" stroke="#D4A040" stroke-width="1.5" fill="none" opacity=".6"/>
-        <text x="38" y="12" font-family="JetBrains Mono,monospace" font-size="7" fill="#C9A050" letter-spacing="1">TFT</text>
-        <text x="186" y="4" font-family="JetBrains Mono,monospace" font-size="7" fill="#00D4FF" letter-spacing="1">DATA</text>
-        <text x="328" y="12" font-family="JetBrains Mono,monospace" font-size="7" fill="#D4A040" letter-spacing="1">COR-X</text>
-        <circle cx="200" cy="50" r="6" fill="#C9A050" opacity=".25" filter="url(#cvG)"><animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"/></circle>
-        <circle cx="200" cy="50" r="3" fill="#C9A050"/>
-        <line x1="200" y1="58" x2="200" y2="76" stroke="#C9A050" stroke-width="1"/>
-        <polygon points="195,74 200,82 205,74" fill="#C9A050"/>
-        <text x="200" y="97" font-family="JetBrains Mono,monospace" font-size="8" font-weight="600" fill="#C9A050" text-anchor="middle" letter-spacing="3">ACTIONABLE FEASIBILITY</text>
+        <path d="M60,15 Q140,15 200,48" stroke="#C9A050" stroke-width="2" fill="none" opacity=".6"/>
+        <path d="M200,5 L200,48" stroke="#00D4FF" stroke-width="2" fill="none" opacity=".6"/>
+        <path d="M340,15 Q260,15 200,48" stroke="#D4A040" stroke-width="2" fill="none" opacity=".6"/>
+        <text x="38" y="12" font-family="JetBrains Mono,monospace" font-size="9" fill="#C9A050" letter-spacing="1">TFT</text>
+        <text x="186" y="4" font-family="JetBrains Mono,monospace" font-size="9" fill="#00D4FF" letter-spacing="1">DATA</text>
+        <text x="328" y="12" font-family="JetBrains Mono,monospace" font-size="9" fill="#D4A040" letter-spacing="1">COR-X</text>
+        <circle cx="200" cy="50" r="7" fill="#C9A050" opacity=".25" filter="url(#cvG)"><animate attributeName="r" values="6;10;6" dur="2s" repeatCount="indefinite"/></circle>
+        <circle cx="200" cy="50" r="4" fill="#C9A050"/>
+        <line x1="200" y1="58" x2="200" y2="76" stroke="#C9A050" stroke-width="1.5"/>
+        <polygon points="194,74 200,83 206,74" fill="#C9A050"/>
+        <text x="200" y="97" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" fill="#C9A050" text-anchor="middle" letter-spacing="3">ACTIONABLE FEASIBILITY</text>
       </svg>
     </div>
   </div>
@@ -619,8 +629,9 @@ html{scroll-behavior:auto}
       <p class="sub">Building the cognitive infrastructure that makes the entire organism think, sense, and adapt.</p>
     </div>
     <!-- Dual-pillar render -->
-    <div style="text-align:center;margin:24px 0" class="rv">
-      <img src="assets/diagrams/dual-pillar-render.png" alt="HUMINT + SIGINT" style="max-width:700px;width:100%;margin:0 auto;border-radius:2px;border:1px solid var(--border);opacity:.85">
+    <div style="text-align:center;margin:32px 0" class="rv">
+      <img src="assets/diagrams/dual-pillar-render.png" alt="HUMINT + SIGINT" class="dia-img" style="max-width:840px;width:90%;margin:0 auto;border-radius:2px;border:1px solid var(--border)">
+      <p class="dia-cap">Dual-pillar data infrastructure: human intelligence networks and AI-powered collection working through one unified system.</p>
     </div>
     <div class="dp">
       <div class="dp-col dp-col--g rv">
@@ -632,7 +643,7 @@ html{scroll-behavior:auto}
           <li>Financial institution signals aggregated</li>
           <li>Non-public information channels integrated</li>
         </ul>
-        <p style="margin-top:14px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold)">Humans Collect &amp; Interpret</p>
+        <p style="margin-top:14px;font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold)">Humans Collect &amp; Interpret</p>
       </div>
       <div class="dp-col dp-col--cy rv rv-d1">
         <div class="dp-tag dp-tag--cy">SIGINT Infrastructure</div>
@@ -643,7 +654,7 @@ html{scroll-behavior:auto}
           <li>Capital movement and investment flow tracking</li>
           <li>Automated cross-referencing and validation</li>
         </ul>
-        <p style="margin-top:14px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--cyan)">AI Scans &amp; Validates</p>
+        <p style="margin-top:14px;font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--cyan)">AI Scans &amp; Validates</p>
       </div>
     </div>
     <div class="out-g rv">
@@ -674,8 +685,9 @@ html{scroll-behavior:auto}
       <div class="dlv rv rv-d2"><div class="dlv-tag" style="color:var(--cyan)">Force 3 Deliverable</div><div class="dlv-title">Unified Operations Center</div><div class="dlv-text">Real-time intelligence and command platform. The Control Room where data converges, scenarios are simulated, risks flagged, decisions made.</div><div class="dlv-quote">&ldquo;The nerve center of the entire joint venture.&rdquo;</div></div>
     </div>
     <!-- Control Room Visual -->
-    <div style="text-align:center;margin-top:32px" class="rv">
-      <img src="assets/diagrams/control-room.png" alt="Unified Operations Center" style="max-width:700px;width:100%;margin:0 auto;border-radius:2px;border:1px solid var(--border);opacity:.85">
+    <div style="text-align:center;margin-top:36px" class="rv">
+      <img src="assets/diagrams/control-room.png" alt="Unified Operations Center" class="dia-img" style="max-width:840px;width:90%;margin:0 auto;border-radius:2px;border:1px solid var(--border)">
+      <p class="dia-cap">The Unified Operations Center: where corridor-wide data converges, scenarios are simulated, and strategic decisions are made in real time.</p>
     </div>
   </div>
 </section>
@@ -767,8 +779,9 @@ html{scroll-behavior:auto}
       <img src="assets/logos/partners/western-galilee.png" alt="Western Galilee College">
     </div>
     <!-- Round Table Render -->
-    <div style="text-align:center;margin:28px 0" class="rv">
-      <img src="assets/diagrams/round-table.png" alt="Round Table -ALIGN at Center" style="max-width:600px;width:100%;margin:0 auto;border-radius:2px;border:1px solid var(--border);opacity:.85">
+    <div style="text-align:center;margin:32px 0" class="rv">
+      <img src="assets/diagrams/round-table.png" alt="Round Table -ALIGN at Center" class="dia-img" style="max-width:760px;width:90%;margin:0 auto;border-radius:2px;border:1px solid var(--border)">
+      <p class="dia-cap">ALIGN at the center of a global ecosystem. Empty seats at the table - by design.</p>
     </div>
     <div class="hl-box rv"><p>The Round Table is not decoration -it&rsquo;s operational infrastructure. Each partner contributes domain expertise, regional access, or capital networks that strengthen the Cortex.</p></div>
 
@@ -923,6 +936,17 @@ html{scroll-behavior:auto}
   var ham=document.getElementById('ham'),mob=document.getElementById('mob');
   ham.addEventListener('click',function(){ham.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':''});
   mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow=''})});
+
+  // Diagram tap-to-zoom
+  var modal=document.createElement('div');modal.className='dia-modal';document.body.appendChild(modal);
+  modal.addEventListener('click',function(){modal.classList.remove('open');modal.innerHTML='';document.body.style.overflow=''});
+  document.querySelectorAll('.dia-img').forEach(function(el){
+    el.addEventListener('click',function(e){
+      e.preventDefault();
+      var clone=el.cloneNode(true);clone.style.cssText='';clone.className='';
+      modal.innerHTML='';modal.appendChild(clone);modal.classList.add('open');document.body.style.overflow='hidden';
+    });
+  });
 })();
 </script>
 </body>
