@@ -1,4 +1,4 @@
-# ALIGN Intelligence — Team Directory
+# ALIGN Intelligence -Team Directory
 
 ## Contact
 
@@ -47,7 +47,7 @@
 
 ---
 
-## Corridor X — Strategic Technology & Innovation
+## Corridor X -Strategic Technology & Innovation
 
 | Name | Role | LinkedIn |
 |------|------|----------|
@@ -67,8 +67,8 @@
 | S&P Global | Data & Analytics |
 | Cisco | Technology & Networking |
 | Atlantic Council | Policy & Geopolitics |
-| Technion | Academic — Engineering |
-| Ben-Gurion University | Academic — Innovation |
-| Hebrew University | Academic — Research |
-| Sapir College | Academic — Regional |
-| Western Galilee College | Academic — Regional |
+| Technion | Academic -Engineering |
+| Ben-Gurion University | Academic -Innovation |
+| Hebrew University | Academic -Research |
+| Sapir College | Academic -Regional |
+| Western Galilee College | Academic -Regional |

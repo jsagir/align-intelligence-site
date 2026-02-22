@@ -1,4 +1,4 @@
-# Feedback #001 — Dror (Earth Sciences)
+# Feedback #001 -Dror (Earth Sciences)
 
 **Date:** 22 February 2026
 **Source:** WhatsApp
@@ -19,12 +19,12 @@
 ### 2. Tone down Regulatory Pathways claim
 > נראה לי ארוע מסוכן לקחת על עצמינו את מנגנוני הרגולציה בכל מידה. יש כמה מדינות מאוד בעייתיות שבקשיש עובד יותר טוב מחקיקה..
 
-**Slide:** 4 (De-Risking — Regulatory Pathways pillar)
-**Action:** Soften the regulatory claim. Avoid committing to handling regulation in all countries — some corridor nations have problematic regulatory environments. Reframe as mapping/understanding rather than managing.
+**Slide:** 4 (De-Risking -Regulatory Pathways pillar)
+**Action:** Soften the regulatory claim. Avoid committing to handling regulation in all countries -some corridor nations have problematic regulatory environments. Reframe as mapping/understanding rather than managing.
 
 ---
 
-### 3. Remove ADNOC case study — sensitive geopolitics
+### 3. Remove ADNOC case study -sensitive geopolitics
 > לגבי הcase study- לא הייתי שמה מדינה ללא קשר פורמאלי לישראל, על אתר של חברה ישראלית.
 
 **Slide:** 5 (DNA / Credibility)
@@ -40,15 +40,15 @@
 
 ---
 
-### 5. Remove Nimrod Sheffer — running for elections
+### 5. Remove Nimrod Sheffer -running for elections
 > נמרוד שפר מתמודד בבחירות- לא חושבת שנכון לכתוב את השם שלו.
 
 **Slide:** 10 (Team)
-**Action:** Remove Nimrod Sheffer from the team list — he is running for political office and it's inappropriate to list him.
+**Action:** Remove Nimrod Sheffer from the team list -he is running for political office and it's inappropriate to list him.
 
 ---
 
-### 6. Remove Round Table slide — not enough partners yet
+### 6. Remove Round Table slide -not enough partners yet
 > הייתי מורידה את השקף של the round table. מסכימה לגמרי עם ההגיון אבל כרגע אין מספיק שחקנים.
 
 **Slide:** 11 (Round Table / Network)
@@ -62,11 +62,11 @@
 **Slide:** 12 (Momentum)
 **Action:**
 - Change title from "We Didn't Wait for Money" → "What We Have Achieved Thus Far"
-- Remove subtitle "The machine is already running" — sounds odd
+- Remove subtitle "The machine is already running" -sounds odd
 
 ---
 
-### 8. Simplify/hide end section — feels redundant
+### 8. Simplify/hide end section -feels redundant
 > לדעתי מ-2026- צריך להיות מוסתר ולשמור את השקף האחרון. (זה פשוט קצת מסורבל וחוזר)
 
 **Slides:** 13-14 (Timeline + Pipeline)
@@ -75,7 +75,7 @@
 ---
 
 ### 9. Remove Avital Leibovich from team list
-> היערות של אביטל — remove avital from list of people
+> היערות של אביטל -remove avital from list of people
 
 **Slide:** 10 (Team)
 **Action:** Remove Avital Leibovich from the Founders & Strategic Direction team list.
@@ -86,7 +86,7 @@
 
 > אגב- אוד אהבתי את הצבעים. משדר יוקרה.
 
-**Colors approved** — luxury/premium feel confirmed.
+**Colors approved** -luxury/premium feel confirmed.
 
 ---
 

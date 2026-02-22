@@ -1,4 +1,4 @@
-# ALIGN Intelligence — Design System Guide
+# ALIGN Intelligence -Design System Guide
 
 Reference specification for all visual materials, presentations, and web properties.
 
@@ -6,7 +6,7 @@ Reference specification for all visual materials, presentations, and web propert
 
 ## Aesthetic
 
-**McKinsey x Intelligence Agency** — PE-grade institutional. Dark premium. No startup gradients, no playful illustrations. Command center precision meets institutional authority.
+**McKinsey x Intelligence Agency** -PE-grade institutional. Dark premium. No startup gradients, no playful illustrations. Command center precision meets institutional authority.
 
 ---
 
@@ -16,7 +16,7 @@ Reference specification for all visual materials, presentations, and web propert
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `--bg` | `#020B1A` | Deep navy — primary background |
+| `--bg` | `#020B1A` | Deep navy -primary background |
 | `--surface` | `#071222` | Section background (alternating) |
 | `--surface-2` | `#0c1a2e` | Section background (alternating) |
 | `--card` | `#0f1f36` | Card backgrounds |
@@ -26,9 +26,9 @@ Reference specification for all visual materials, presentations, and web propert
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `--gold` | `#C9A050` | Institutional gold — primary accent, CTAs, labels |
-| `--gold-lt` | `#dfc477` | Light gold — quotes, highlights |
-| `--cyan` | `#00D4FF` | Intelligence/tech — secondary accent, data, Force 3 |
+| `--gold` | `#C9A050` | Institutional gold -primary accent, CTAs, labels |
+| `--gold-lt` | `#dfc477` | Light gold -quotes, highlights |
+| `--cyan` | `#00D4FF` | Intelligence/tech -secondary accent, data, Force 3 |
 | `--red` | `#FF4B4B` | Alerts, critical flags (use sparingly) |
 
 ### Text Colors
