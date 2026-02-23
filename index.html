@@ -162,7 +162,7 @@ ul{list-style:none}
 /* Center hub — big, pulsing, ALIGN Intelligence logo */
 .rt-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:2;width:140px;height:140px;border-radius:50%;border:2px solid rgba(201,160,80,.35);background:rgba(10,22,40,.8);display:flex;flex-direction:column;align-items:center;justify-content:center;animation:rt-pulse 3s ease-in-out infinite}
 @keyframes rt-pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,160,80,.15);border-color:rgba(201,160,80,.35)}50%{box-shadow:0 0 20px 4px rgba(201,160,80,.08);border-color:rgba(201,160,80,.5)}}
-.rt-center img{height:48px;width:auto;filter:brightness(0) invert(1);opacity:.9}
+.rt-center img{height:48px;width:auto;opacity:.9}
 .rt-center span{display:block;font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.6;margin-top:6px;letter-spacing:2px}
 /* Partner seats */
 .rt-seat{position:absolute;width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,160,80,.25);background:rgba(201,160,80,.04);cursor:pointer;transition:all .4s ease}
@@ -1263,14 +1263,14 @@ html{scroll-behavior:auto}
     <div class="rt-wrap rv" style="margin-bottom:24px">
       <div class="rt-ring"></div>
       <div class="rt-ring-inner"></div>
-      <div class="rt-center"><img src="assets/logos/align-intelligence-logo.png" alt="ALIGN Intelligence"><span>ALIGN INTELLIGENCE</span></div>
+      <div class="rt-center"><img src="assets/logos/align-icon.svg" alt="ALIGN Intelligence"><span>ALIGN INTELLIGENCE</span></div>
       <!-- 12 seats around the table, positioned by JS -->
       <div class="rt-seat" data-seat="0"><img src="assets/logos/partners/sp-global.svg" alt="S&P Global"><span class="rt-name">S&amp;P Global</span></div>
-      <div class="rt-seat" data-seat="1"><img src="assets/logos/partners/cisco.svg" alt="Cisco"><span class="rt-name">Cisco Systems</span></div>
+      <div class="rt-seat" data-seat="1"><img src="assets/logos/partners/cisco.svg" alt="Cisco"><span class="rt-name">Cisco</span></div>
       <div class="rt-seat" data-seat="2"><img src="assets/logos/partners/atlantic-council.png" alt="Atlantic Council"><span class="rt-name">Atlantic Council</span></div>
-      <div class="rt-seat" data-seat="3"><img src="assets/logos/partners/bgu.svg" alt="Ben-Gurion University"><span class="rt-name">Ben-Gurion University</span></div>
+      <div class="rt-seat" data-seat="3"><img src="assets/logos/partners/bgu.svg" alt="Ben-Gurion University"><span class="rt-name">Ben-Gurion University of the Negev</span></div>
       <div class="rt-seat rt-seat--empty" data-seat="4"></div>
-      <div class="rt-seat" data-seat="5"><img src="assets/logos/partners/hebrew-university.svg" alt="Hebrew University"><span class="rt-name">Hebrew University</span></div>
+      <div class="rt-seat" data-seat="5"><img src="assets/logos/partners/hebrew-university.svg" alt="Hebrew University"><span class="rt-name">Hebrew University of Jerusalem</span></div>
       <div class="rt-seat rt-seat--empty" data-seat="6"></div>
       <div class="rt-seat" data-seat="7"><img src="assets/logos/partners/sapir.svg" alt="Sapir College"><span class="rt-name">Sapir Academic College</span></div>
       <div class="rt-seat rt-seat--empty" data-seat="8"></div>
