@@ -154,12 +154,12 @@ ul{list-style:none}
 @media(min-width:1200px){.team-g{grid-template-columns:1fr 1fr 1fr}}
 
 /* --- Logo Strip --- */
-.logos{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:center;justify-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:4px;padding:24px 20px}
-@media(min-width:768px){.logos{grid-template-columns:repeat(4,1fr);gap:28px;padding:28px 32px}}
-@media(min-width:1200px){.logos{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:32px 40px}}
-.logos img{height:36px;width:auto;opacity:.85;filter:grayscale(20%) brightness(2.5) contrast(.9);transition:opacity .3s,filter .3s}
-.logos img:hover{opacity:1;filter:grayscale(0%) brightness(3) contrast(.95)}
-@media(min-width:1200px){.logos img{height:42px}}
+.logos{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:center;justify-items:center;padding:24px 20px}
+@media(min-width:768px){.logos{grid-template-columns:repeat(4,1fr);gap:20px;padding:28px 32px}}
+@media(min-width:1200px){.logos{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;padding:32px 40px}}
+.logos img{height:36px;width:auto;padding:14px 20px;background:rgba(255,255,255,.92);border-radius:6px;opacity:1;filter:none;transition:transform .2s,box-shadow .2s}
+.logos img:hover{transform:scale(1.05);box-shadow:0 4px 16px rgba(0,0,0,.15)}
+@media(min-width:1200px){.logos img{height:42px;padding:16px 24px}}
 
 /* --- Timeline --- */
 .tl{display:flex;flex-direction:column;gap:28px}
@@ -1240,7 +1240,6 @@ html{scroll-behavior:auto}
       <img src="assets/logos/partners/sp-global.svg" alt="S&P Global">
       <img src="assets/logos/partners/cisco.svg" alt="Cisco">
       <img src="assets/logos/partners/atlantic-council.png" alt="Atlantic Council">
-      <img src="assets/logos/partners/technion.svg" alt="Technion">
       <img src="assets/logos/partners/bgu.svg" alt="Ben-Gurion University">
       <img src="assets/logos/partners/hebrew-university.svg" alt="Hebrew University">
       <img src="assets/logos/partners/sapir.svg" alt="Sapir College">
