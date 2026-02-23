@@ -154,12 +154,10 @@ ul{list-style:none}
 @media(min-width:1200px){.team-g{grid-template-columns:1fr 1fr 1fr}}
 
 /* --- Logo Strip --- */
-.logos{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:center;justify-items:center;padding:24px 20px}
-@media(min-width:768px){.logos{grid-template-columns:repeat(4,1fr);gap:20px;padding:28px 32px}}
-@media(min-width:1200px){.logos{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;padding:32px 40px}}
-.logos img{height:48px;width:auto;padding:16px 22px;background:rgba(255,255,255,.07);border:1px solid rgba(201,160,80,.08);border-radius:2px;filter:brightness(2.5) contrast(.85) grayscale(15%);opacity:.9;transition:opacity .3s,filter .3s,border-color .3s}
-.logos img:hover{opacity:1;filter:brightness(2.8) contrast(.9) grayscale(0%);border-color:rgba(201,160,80,.25)}
-@media(min-width:1200px){.logos img{height:56px;padding:18px 28px}}
+.logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:32px 48px;padding:24px 0}
+.logos img{height:28px;width:auto;background:none;border:none;padding:0;filter:brightness(0) invert(1);opacity:.35;transition:opacity .3s,filter .3s}
+.logos img:hover{opacity:.85}
+@media(max-width:479px){.logos{gap:24px 32px}.logos img{height:24px}}
 
 /* --- Timeline --- */
 .tl{display:flex;flex-direction:column;gap:28px}
