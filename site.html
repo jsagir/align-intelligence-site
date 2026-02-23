@@ -156,29 +156,34 @@ ul{list-style:none}
 
 /* --- Logo Strip --- */
 /* --- Round Table --- */
-/* --- Round Table --- */
 .rt-wrap{position:relative;width:90%;max-width:720px;aspect-ratio:1;margin:0 auto}
 .rt-ring{position:absolute;top:50%;left:50%;width:82%;height:82%;transform:translate(-50%,-50%);border:1px solid rgba(201,160,80,.2);border-radius:50%}
 .rt-ring-inner{position:absolute;top:50%;left:50%;width:48%;height:48%;transform:translate(-50%,-50%);border:1px dashed rgba(201,160,80,.1);border-radius:50%}
-.rt-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:2;width:100px;height:100px;border-radius:50%;border:2px solid rgba(201,160,80,.3);background:rgba(201,160,80,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;animation:rt-pulse 3s ease-in-out infinite}
-@keyframes rt-pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,160,80,0)}50%{box-shadow:0 0 24px 4px rgba(201,160,80,.08)}}
-.rt-center img{height:36px;width:auto;filter:brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(10deg);opacity:.9}
-.rt-center span{display:block;font-family:var(--mono);font-size:11px;color:var(--gold);opacity:.6;margin-top:4px;letter-spacing:1.5px}
-.rt-seat{position:absolute;width:80px;height:80px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(201,160,80,.25);background:rgba(201,160,80,.04);cursor:pointer;transition:all .4s ease}
-.rt-seat img{height:26px;width:auto;max-width:56px;filter:brightness(0) invert(1);opacity:.45;transition:all .4s ease}
+/* Center hub — big, pulsing, ALIGN Intelligence logo */
+.rt-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:2;width:140px;height:140px;border-radius:50%;border:2px solid rgba(201,160,80,.35);background:rgba(10,22,40,.8);display:flex;flex-direction:column;align-items:center;justify-content:center;animation:rt-pulse 3s ease-in-out infinite}
+@keyframes rt-pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,160,80,.15);border-color:rgba(201,160,80,.35)}50%{box-shadow:0 0 20px 4px rgba(201,160,80,.08);border-color:rgba(201,160,80,.5)}}
+.rt-center img{height:48px;width:auto;filter:brightness(0) invert(1);opacity:.9}
+.rt-center span{display:block;font-family:var(--mono);font-size:10px;color:var(--gold);opacity:.6;margin-top:6px;letter-spacing:2px}
+/* Partner seats */
+.rt-seat{position:absolute;width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,160,80,.25);background:rgba(201,160,80,.04);cursor:pointer;transition:all .4s ease}
+.rt-seat img{height:26px;width:auto;max-width:56px;filter:brightness(0) invert(1);opacity:.35;transition:all .4s ease}
 .rt-seat:hover{border-color:rgba(201,160,80,.4);background:rgba(201,160,80,.08)}
-.rt-seat:hover img{opacity:.8}
-.rt-seat.revealed{border-color:rgba(201,160,80,.5);border-width:2px;background:rgba(10,22,40,.95);filter:drop-shadow(0 0 12px rgba(201,160,80,.15))}
-.rt-seat.revealed img{opacity:1;filter:none;transform:scale(1.1)}
-.rt-seat .rt-name{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:9px;color:rgba(201,160,80,0);letter-spacing:.8px;text-transform:uppercase;white-space:nowrap;transition:color .3s}
-.rt-seat.revealed .rt-name{color:rgba(201,160,80,.7)}
+.rt-seat:hover img{opacity:.7}
+/* Revealed state — white bg, full color logo, gold border, name visible */
+.rt-seat.revealed{border-color:#C9A050;border-width:2px;background:#FFFFFF;filter:drop-shadow(0 4px 16px rgba(0,0,0,.4))}
+.rt-seat.revealed img{opacity:1;filter:none;transform:scale(1.05)}
+/* Name labels */
+.rt-seat .rt-name{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;color:rgba(201,160,80,0);letter-spacing:1px;white-space:nowrap;transition:color .3s}
+.rt-seat.revealed .rt-name{color:rgba(201,160,80,.8)}
 .rt-seat:hover .rt-name{color:rgba(201,160,80,.4)}
+/* Empty seats */
 .rt-seat--empty{border-style:dashed;border-color:rgba(201,160,80,.12);background:none;cursor:default}
 .rt-seat--empty::after{content:'+';color:var(--gold);opacity:.2;font-size:22px;font-weight:300}
 .rt-seat--empty:hover{border-color:rgba(201,160,80,.25)}
 .rt-seat--empty:hover::after{opacity:.45}
-@media(max-width:599px){.rt-wrap{max-width:360px}.rt-center{width:70px;height:70px}.rt-center img{height:26px}.rt-seat{width:58px;height:58px}.rt-seat img{height:18px;max-width:42px}.rt-seat .rt-name{font-size:7px;bottom:-16px}}
-@media(min-width:1200px){.rt-wrap{max-width:900px}.rt-center{width:120px;height:120px}.rt-center img{height:44px}.rt-center span{font-size:12px}.rt-seat{width:90px;height:90px}.rt-seat img{height:30px;max-width:64px}}
+/* Responsive */
+@media(max-width:599px){.rt-wrap{max-width:360px}.rt-center{width:90px;height:90px}.rt-center img{height:32px}.rt-center span{font-size:8px}.rt-seat{width:56px;height:56px}.rt-seat img{height:16px;max-width:40px}.rt-seat .rt-name{font-size:7px;bottom:-16px}}
+@media(min-width:1200px){.rt-wrap{max-width:900px}.rt-center{width:160px;height:160px}.rt-center img{height:56px}.rt-center span{font-size:11px;letter-spacing:2px}.rt-seat{width:90px;height:90px}.rt-seat img{height:30px;max-width:64px}}
 
 /* --- Timeline --- */
 .tl{display:flex;flex-direction:column;gap:28px}
@@ -1258,18 +1263,18 @@ html{scroll-behavior:auto}
     <div class="rt-wrap rv" style="margin-bottom:24px">
       <div class="rt-ring"></div>
       <div class="rt-ring-inner"></div>
-      <div class="rt-center"><img src="assets/logos/align-icon.svg" alt="ALIGN"><span>CORTEX</span></div>
+      <div class="rt-center"><img src="assets/logos/align-intelligence-logo.png" alt="ALIGN Intelligence"><span>ALIGN INTELLIGENCE</span></div>
       <!-- 12 seats around the table, positioned by JS -->
       <div class="rt-seat" data-seat="0"><img src="assets/logos/partners/sp-global.svg" alt="S&P Global"><span class="rt-name">S&amp;P Global</span></div>
-      <div class="rt-seat" data-seat="1"><img src="assets/logos/partners/cisco.svg" alt="Cisco"><span class="rt-name">Cisco</span></div>
+      <div class="rt-seat" data-seat="1"><img src="assets/logos/partners/cisco.svg" alt="Cisco"><span class="rt-name">Cisco Systems</span></div>
       <div class="rt-seat" data-seat="2"><img src="assets/logos/partners/atlantic-council.png" alt="Atlantic Council"><span class="rt-name">Atlantic Council</span></div>
-      <div class="rt-seat" data-seat="3"><img src="assets/logos/partners/bgu.svg" alt="Ben-Gurion University"><span class="rt-name">BGU</span></div>
+      <div class="rt-seat" data-seat="3"><img src="assets/logos/partners/bgu.svg" alt="Ben-Gurion University"><span class="rt-name">Ben-Gurion University</span></div>
       <div class="rt-seat rt-seat--empty" data-seat="4"></div>
-      <div class="rt-seat" data-seat="5"><img src="assets/logos/partners/hebrew-university.svg" alt="Hebrew University"><span class="rt-name">Hebrew U</span></div>
+      <div class="rt-seat" data-seat="5"><img src="assets/logos/partners/hebrew-university.svg" alt="Hebrew University"><span class="rt-name">Hebrew University</span></div>
       <div class="rt-seat rt-seat--empty" data-seat="6"></div>
-      <div class="rt-seat" data-seat="7"><img src="assets/logos/partners/sapir.svg" alt="Sapir College"><span class="rt-name">Sapir</span></div>
+      <div class="rt-seat" data-seat="7"><img src="assets/logos/partners/sapir.svg" alt="Sapir College"><span class="rt-name">Sapir Academic College</span></div>
       <div class="rt-seat rt-seat--empty" data-seat="8"></div>
-      <div class="rt-seat" data-seat="9"><img src="assets/logos/partners/western-galilee.png" alt="Western Galilee College"><span class="rt-name">W. Galilee</span></div>
+      <div class="rt-seat" data-seat="9"><img src="assets/logos/partners/western-galilee.png" alt="Western Galilee College"><span class="rt-name">Western Galilee College</span></div>
       <div class="rt-seat rt-seat--empty" data-seat="10"></div>
       <div class="rt-seat rt-seat--empty" data-seat="11"></div>
     </div>
