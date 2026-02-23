@@ -157,8 +157,8 @@ ul{list-style:none}
 .logos{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:center;justify-items:center;padding:24px 20px}
 @media(min-width:768px){.logos{grid-template-columns:repeat(4,1fr);gap:20px;padding:28px 32px}}
 @media(min-width:1200px){.logos{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;padding:32px 40px}}
-.logos img{height:36px;width:auto;padding:14px 20px;background:rgba(255,255,255,.92);border-radius:6px;opacity:1;filter:none;transition:transform .2s,box-shadow .2s}
-.logos img:hover{transform:scale(1.05);box-shadow:0 4px 16px rgba(0,0,0,.15)}
+.logos img{height:36px;width:auto;padding:14px 20px;background:rgba(255,255,255,.07);border:1px solid rgba(201,160,80,.08);border-radius:2px;filter:brightness(2.2) contrast(.8) grayscale(20%);opacity:.8;transition:opacity .3s,filter .3s,border-color .3s}
+.logos img:hover{opacity:1;filter:brightness(2.6) contrast(.85) grayscale(0%);border-color:rgba(201,160,80,.2)}
 @media(min-width:1200px){.logos img{height:42px;padding:16px 24px}}
 
 /* --- Timeline --- */
