@@ -62,10 +62,10 @@ ul{list-style:none}
   --sans:'Inter',system-ui,sans-serif;
   --mono:'JetBrains Mono',monospace;
   --serif:'Cormorant Garamond',Georgia,serif;
-  --px:24px;--py:80px;--max:1360px;--nav-h:60px;
+  --px:24px;--py:48px;--max:1360px;--nav-h:60px;
 }
-@media(min-width:768px){:root{--px:40px;--py:100px}}
-@media(min-width:1200px){:root{--px:56px;--py:120px;--nav-h:68px}}
+@media(min-width:768px){:root{--px:40px;--py:56px}}
+@media(min-width:1200px){:root{--px:56px;--py:64px;--nav-h:68px}}
 
 /* --- Type Scale (Presentation Grade) --- */
 .label{font-family:var(--mono);font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:4px;color:var(--gold);margin-bottom:20px}
@@ -81,7 +81,7 @@ ul{list-style:none}
 .quote{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.8vw,32px);color:var(--gold-lt);line-height:1.55}
 
 /* --- Layout (Slide-mode) --- */
-.sec{padding:var(--py) var(--px);position:relative;overflow:hidden;min-height:var(--vh-full,100vh);display:flex;flex-direction:column;justify-content:center}
+.sec{padding:var(--py) var(--px);position:relative;overflow:hidden;min-height:auto;display:flex;flex-direction:column;justify-content:center}
 .sec-inner{max-width:var(--max);margin:0 auto;width:100%;position:relative;z-index:2}
 .sec--s{background:var(--surface)}
 .sec--s2{background:var(--surface-2)}
@@ -98,7 +98,7 @@ ul{list-style:none}
 
 /* --- HUD Bar --- */
 .hud{display:flex;align-items:center;justify-content:space-between;padding:8px 0;margin-bottom:28px;border-bottom:1px solid var(--border)}
-.hud-logo{height:16px;width:auto;opacity:.4}
+.hud-logo{height:20px;width:auto;opacity:.5}
 .hud-code{font-family:var(--mono);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:2.5px;color:var(--text-3)}
 
 /* --- Tactical Grid Overlay --- */
@@ -178,7 +178,7 @@ ul{list-style:none}
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;padding:0 var(--px);background:transparent;transition:background .3s,box-shadow .3s}
 .nav.scrolled{background:rgba(2,11,26,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border)}
 .nav-inner{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{height:24px;width:auto;flex-shrink:0}
+.nav-logo{height:32px;width:auto;flex-shrink:0}
 .nav-links{display:none;gap:24px;align-items:center}
 @media(min-width:1024px){.nav-links{display:flex}}
 .nav-link{font-family:var(--mono);font-size:13px;font-weight:400;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-2);transition:color .2s;white-space:nowrap}
@@ -1403,6 +1403,7 @@ html{scroll-behavior:auto}
 
 <footer class="footer">
   <div class="footer-stamp">Internal Strategy Document -2026 // Classification: Institutional</div>
+  <div style="text-align:center;font-size:12px;color:var(--gold);opacity:.7;margin-top:8px;font-family:var(--mono);letter-spacing:.5px">BETA &mdash; This site is a work in progress. Content, team, and partnerships are actively evolving.</div>
 </footer>
 
 <!-- ================================================================
