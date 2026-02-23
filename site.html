@@ -118,7 +118,8 @@ ul{list-style:none}
 /* --- Pill / Tag --- */
 .pill{display:inline-block;font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:2px;padding:7px 18px;border:1px solid var(--border);border-radius:1px;color:var(--gold);white-space:nowrap}
 .pill--cy{border-color:var(--border-cyan);color:var(--cyan)}
-.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills{display:flex;flex-wrap:nowrap;gap:8px}
+@media(max-width:599px){.pills{flex-wrap:wrap}}
 .tag{display:inline-block;font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:1.5px;padding:5px 12px;background:var(--gold-dim);color:var(--gold);border-radius:1px}
 
 /* --- Highlight Box --- */
@@ -246,8 +247,8 @@ ul{list-style:none}
 .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.3}
 .hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 55% 45%,transparent 20%,var(--bg) 75%),linear-gradient(to bottom,transparent 60%,var(--bg) 100%)}
 .hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;position:relative;z-index:2}
-@media(min-width:1024px){.hero-grid{grid-template-columns:1.1fr .9fr;gap:56px}}
-.hero-logo{height:48px;width:auto;margin-bottom:28px;opacity:.9}
+@media(min-width:1024px){.hero-grid{grid-template-columns:1fr 1fr;gap:48px}}
+.hero-logo{height:48px;width:auto;margin-bottom:28px;filter:brightness(0) invert(1);opacity:.85}
 @media(min-width:768px){.hero-logo{height:60px}}
 .hero-tagline{font-size:clamp(16px,2.2vw,20px);font-weight:400;color:var(--text-2);line-height:1.7;margin:16px 0 32px;max-width:580px}
 .hero-pillars{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:32px}
@@ -256,9 +257,9 @@ ul{list-style:none}
 .hero-pill-name{font-family:var(--sans);font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--white);margin-bottom:3px}
 .hero-pill-desc{font-size:13px;color:var(--text-3)}
 .hero-vis{display:flex;justify-content:center;align-items:center;position:relative}
-.hero-vis img{max-width:420px;width:100%;border-radius:2px}
-.hero-vis svg{width:100%;max-width:640px;height:auto}
-@media(min-width:1200px){.hero-vis img{max-width:500px}.hero-vis svg{max-width:700px}}
+.hero-vis img{max-width:520px;width:100%;border-radius:2px}
+.hero-vis svg{width:100%;min-width:480px;max-width:640px;height:auto}
+@media(min-width:1200px){.hero-vis img{max-width:580px}.hero-vis svg{max-width:720px}}
 @keyframes dashFlow{from{stroke-dashoffset:24}to{stroke-dashoffset:0}}
 @keyframes svgPulse{0%,100%{opacity:.4}50%{opacity:1}}
 @keyframes nodeGlow{0%,100%{r:4;opacity:.6}50%{r:7;opacity:1}}
@@ -334,7 +335,7 @@ ul{list-style:none}
 /* Close */
 .close{text-align:center;padding:var(--py) var(--px);min-height:calc(var(--vh-full,100vh) * .8);display:flex;align-items:center;position:relative;overflow:hidden}
 .close-inner{max-width:760px;margin:0 auto;position:relative;z-index:2}
-.close-logo{height:56px;width:auto;margin:0 auto 32px;opacity:.9}
+.close-logo{height:56px;width:auto;margin:0 auto 32px;display:block;filter:brightness(0) invert(1);opacity:.85}
 .close-bar{width:60px;height:2px;background:var(--gold);margin:20px auto 28px}
 .close-q{font-family:var(--serif);font-style:italic;font-size:clamp(18px,2.5vw,26px);color:var(--text-2);line-height:1.7;margin-bottom:32px}
 .close-tag{font-family:var(--sans);font-size:clamp(16px,2vw,22px);font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--gold)}
@@ -584,9 +585,8 @@ html{scroll-behavior:auto}
   <div class="sec-inner">
     <div class="hero-grid">
       <div>
-        <img src="assets/logos/align-intelligence-logo.png" alt="ALIGN Intelligence" class="hero-logo rv">
-        <p class="label rv rv-d1">ALIGN Intelligence</p>
-        <h1 class="h1 rv rv-d2">Hardwiring the<br>Abraham Accords</h1>
+        <p class="label rv">ALIGN Intelligence</p>
+        <h1 class="h1 rv rv-d1">Hardwiring the<br>Abraham Accords</h1>
         <p class="hero-tagline rv rv-d2">For irreversible regional stability, we upgrade to solid hardware: power grids, desalinated water pipelines, subsea data cables. Then comes the software: diplomacy. Both need each other to work.</p>
         <div class="hero-pillars rv rv-d3">
           <div class="hero-pill">
