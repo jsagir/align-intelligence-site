@@ -538,6 +538,70 @@ html{scroll-behavior:auto}
 .cx .df{stroke-dasharray:10,10;animation:cxDf 1.5s linear infinite}
 .cx .fp{animation:cxFp 3s ease-in-out infinite}
 @media(max-width:900px){.cx-body{grid-template-columns:1fr}.cx-sb,.cx-rp{display:none}.cx-body{height:400px}.cx-layers .lyr-btn{font-size:7px;padding:3px 8px}.cx-kpis{display:none}}
+
+/* ================================================================
+   MOBILE MODE (<768px) - THE HOOK
+   ================================================================ */
+.desktop-only{display:block}
+.mobile-only{display:none}
+@media(max-width:768px){
+  .desktop-only{display:none !important}
+  .mobile-only{display:block !important}
+
+  /* Hero - single column, centered, diagram visible */
+  .hero-grid{text-align:center}
+  .hero-tagline{margin-left:auto;margin-right:auto;font-size:15px}
+  .hero-vis{margin-top:24px}
+  .hero-vis svg{min-width:0 !important;max-width:100% !important}
+  .hero-pillars{margin-bottom:20px}
+  .hero-pill{padding:12px 10px}
+  .hero-pill-name{font-size:13px}
+  .hero-pill-desc{font-size:11px}
+  .pills{flex-wrap:wrap;justify-content:center}
+
+  /* Sections - tighter on mobile */
+  .sec-head{margin-bottom:32px}
+
+  /* Round Table - horizontal scroll on mobile */
+  .rt-wrap.desktop-only{display:none !important}
+  .rt-mobile{display:flex !important;gap:20px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:16px 20px 32px;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .rt-mobile::-webkit-scrollbar{display:none}
+  .rt-mobile-seat{flex-shrink:0;width:80px;display:flex;flex-direction:column;align-items:center;gap:8px;scroll-snap-align:center;cursor:pointer}
+  .rt-mobile-seat .rt-m-circle{width:72px;height:72px;border-radius:50%;border:1px solid rgba(201,160,80,.25);background:rgba(201,160,80,.04);display:flex;align-items:center;justify-content:center;transition:all .4s}
+  .rt-mobile-seat .rt-m-circle img{height:24px;width:auto;max-width:48px;filter:brightness(0) invert(1);opacity:.4;transition:all .4s}
+  .rt-mobile-seat .rt-m-name{font-family:var(--mono);font-size:8px;color:rgba(201,160,80,.3);letter-spacing:.5px;text-align:center;transition:color .3s;line-height:1.2}
+  .rt-mobile-seat.revealed .rt-m-circle{background:#fff;border-color:#C9A050;border-width:2px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3))}
+  .rt-mobile-seat.revealed .rt-m-circle img{filter:none;opacity:1}
+  .rt-mobile-seat.revealed .rt-m-name{color:rgba(201,160,80,.8)}
+  .rt-mobile-seat--empty .rt-m-circle{border-style:dashed;border-color:rgba(201,160,80,.1)}
+  .rt-mobile-seat--empty .rt-m-circle::after{content:'+';color:var(--gold);opacity:.2;font-size:18px}
+
+  /* Cortex dashboard - simplified on mobile */
+  .cx-body{height:320px}
+  .cx-intro{padding:12px 16px 10px}
+  .cx-intro .h3{font-size:16px}
+  .cx-logo{font-size:10px}
+
+  /* Team - single column cards */
+  .av{gap:10px}
+
+  /* Performance - pause SVG animations */
+  .fp,.df{animation:none !important}
+
+  /* Sticky CTA */
+  .mobile-cta{position:fixed;bottom:0;left:0;right:0;padding:10px 20px;background:rgba(2,11,26,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(201,160,80,.2);z-index:999;text-align:center;display:flex !important;justify-content:center}
+  .mobile-cta a{display:inline-block;padding:11px 36px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s}
+  .mobile-cta a:active{background:var(--gold);color:var(--bg)}
+
+  /* Add bottom padding so content isn't hidden behind sticky CTA */
+  .footer{padding-bottom:60px}
+}
+
+/* Tablet tweaks */
+@media(min-width:769px) and (max-width:1024px){
+  .hero-grid{gap:32px}
+  .hero-vis svg{max-width:100% !important;min-width:0 !important}
+}
 </style>
 </head>
 <body>
@@ -1259,8 +1323,8 @@ html{scroll-behavior:auto}
       <h2 class="h2">The Round Table: Global Connectivity</h2>
       <p class="sub">ALIGN sits at the center of a global ecosystem. Empty seats at the table -by design.</p>
     </div>
-    <!-- Round Table: circular seat layout -->
-    <div class="rt-wrap rv" style="margin-bottom:24px">
+    <!-- Round Table: desktop orbital layout -->
+    <div class="rt-wrap rv desktop-only" style="margin-bottom:24px">
       <div class="rt-ring"></div>
       <div class="rt-ring-inner"></div>
       <div class="rt-center"><img src="assets/logos/align-icon.svg" alt="ALIGN Intelligence"><span>ALIGN INTELLIGENCE</span></div>
@@ -1277,6 +1341,18 @@ html{scroll-behavior:auto}
       <div class="rt-seat" data-seat="9"><img src="assets/logos/partners/western-galilee.png" alt="Western Galilee College"><span class="rt-name">Western Galilee College</span></div>
       <div class="rt-seat rt-seat--empty" data-seat="10"></div>
       <div class="rt-seat rt-seat--empty" data-seat="11"></div>
+    </div>
+    <!-- Round Table: mobile horizontal scroll -->
+    <div class="rt-mobile mobile-only" style="margin-bottom:16px">
+      <div class="rt-mobile-seat" data-partner="S&amp;P Global"><div class="rt-m-circle"><img src="assets/logos/partners/sp-global.svg" alt="S&P Global"></div><div class="rt-m-name">S&amp;P Global</div></div>
+      <div class="rt-mobile-seat" data-partner="Cisco"><div class="rt-m-circle"><img src="assets/logos/partners/cisco.svg" alt="Cisco"></div><div class="rt-m-name">Cisco</div></div>
+      <div class="rt-mobile-seat" data-partner="Atlantic Council"><div class="rt-m-circle"><img src="assets/logos/partners/atlantic-council.png" alt="Atlantic Council"></div><div class="rt-m-name">Atlantic Council</div></div>
+      <div class="rt-mobile-seat" data-partner="BGU"><div class="rt-m-circle"><img src="assets/logos/partners/bgu.svg" alt="Ben-Gurion University"></div><div class="rt-m-name">Ben-Gurion University</div></div>
+      <div class="rt-mobile-seat" data-partner="Hebrew U"><div class="rt-m-circle"><img src="assets/logos/partners/hebrew-university.svg" alt="Hebrew University"></div><div class="rt-m-name">Hebrew University</div></div>
+      <div class="rt-mobile-seat" data-partner="Sapir"><div class="rt-m-circle"><img src="assets/logos/partners/sapir.svg" alt="Sapir College"></div><div class="rt-m-name">Sapir College</div></div>
+      <div class="rt-mobile-seat" data-partner="W. Galilee"><div class="rt-m-circle"><img src="assets/logos/partners/western-galilee.png" alt="Western Galilee College"></div><div class="rt-m-name">Western Galilee College</div></div>
+      <div class="rt-mobile-seat rt-mobile-seat--empty"><div class="rt-m-circle"></div><div class="rt-m-name" style="opacity:.15">Open</div></div>
+      <div class="rt-mobile-seat rt-mobile-seat--empty"><div class="rt-m-circle"></div><div class="rt-m-name" style="opacity:.15">Open</div></div>
     </div>
     <p style="text-align:center;font-size:14px;color:var(--text-3);opacity:.85;margin-top:12px;margin-bottom:8px;font-style:italic">Alliance roster in formation. Partnership terms in progress with select organizations.</p>
     <p class="sub" style="color:var(--gold);font-size:14px;font-family:var(--mono);letter-spacing:.5px;margin-top:4px">The alliance is forming now. Strategic seats remain open by invitation.</p>
@@ -1519,7 +1595,19 @@ html{scroll-behavior:auto}
   function tick(){var n=new Date(),h=String((n.getUTCHours()+3)%24).padStart(2,'0'),m=String(n.getUTCMinutes()).padStart(2,'0'),s=String(n.getUTCSeconds()).padStart(2,'0'),t=h+':'+m+':'+s;var e1=document.getElementById('cxClk'),e2=document.getElementById('cxClk2');if(e1)e1.textContent=t+' UTC+3';if(e2)e2.textContent='ACI '+t+' | LAT 0.'+Math.floor(Math.random()*9)+Math.floor(Math.random()*9)+'ms';}
   setInterval(tick,1000);tick();
   setTimeout(function(){var g=document.getElementById('gapFill');if(g)g.style.width='28%';},500);
+  // Mobile Round Table - tap to reveal
+  document.querySelectorAll('.rt-mobile-seat:not(.rt-mobile-seat--empty)').forEach(function(s){
+    s.addEventListener('click',function(){
+      var was=this.classList.contains('revealed');
+      document.querySelectorAll('.rt-mobile-seat.revealed').forEach(function(n){n.classList.remove('revealed')});
+      if(!was)this.classList.add('revealed');
+    });
+  });
 })();
 </script>
+
+<!-- Mobile sticky CTA -->
+<div class="mobile-cta" style="display:none"><a href="#join">Join the Cortex</a></div>
+
 </body>
 </html>
