@@ -602,13 +602,9 @@ html{scroll-behavior:auto}
   /* Performance - pause SVG animations */
   .fp,.df{animation:none !important}
 
-  /* Sticky CTA */
-  .mobile-cta{position:fixed;bottom:0;left:0;right:0;padding:10px 20px;background:rgba(2,11,26,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(201,160,80,.2);z-index:999;text-align:center;display:flex !important;justify-content:center}
-  .mobile-cta a{display:inline-block;padding:11px 36px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s}
-  .mobile-cta a:active{background:var(--gold);color:var(--bg)}
-
-  /* Add bottom padding so content isn't hidden behind sticky CTA */
-  .footer{padding-bottom:60px}
+  /* Floating CTA button - smaller on mobile */
+  .fab-cta{bottom:16px;right:16px;padding:12px 18px}
+  .fab-label{font-size:11px}
 }
 
 /* Tablet tweaks */
@@ -630,6 +626,33 @@ html{scroll-behavior:auto}
 
 /* --- Scroll progress bar --- */
 .scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--cyan));z-index:1001;width:0;transition:width .1s linear}
+
+/* --- Floating CTA Button --- */
+.fab-cta{position:fixed;bottom:24px;right:24px;z-index:998;display:flex;align-items:center;gap:8px;padding:14px 22px;background:rgba(2,11,26,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--gold);color:var(--gold);font-family:var(--mono);cursor:pointer;border-radius:2px;transition:all .3s;box-shadow:0 4px 24px rgba(0,0,0,.4)}
+.fab-cta:hover{background:var(--gold);color:var(--bg);box-shadow:0 4px 32px rgba(201,160,80,.2)}
+.fab-label{font-size:13px;text-transform:uppercase;letter-spacing:2px;font-weight:500}
+@keyframes fabPulse{0%,100%{box-shadow:0 4px 24px rgba(0,0,0,.4)}50%{box-shadow:0 4px 24px rgba(201,160,80,.15)}}
+.fab-cta{animation:fabPulse 4s ease-in-out infinite}
+.fab-cta:hover{animation:none}
+
+/* --- Contact Modal --- */
+.contact-modal{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+.contact-modal.open{opacity:1;pointer-events:auto}
+.cm-backdrop{position:absolute;inset:0;background:rgba(2,11,26,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.cm-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:2px;padding:40px 36px 32px;text-align:center;max-width:360px;width:90%;box-shadow:0 16px 64px rgba(0,0,0,.6);transform:translateY(20px);transition:transform .3s}
+.contact-modal.open .cm-card{transform:translateY(0)}
+.cm-close{position:absolute;top:12px;right:14px;background:none;border:none;color:var(--text-3);font-size:24px;cursor:pointer;padding:4px 8px;transition:color .2s}
+.cm-close:hover{color:var(--gold)}
+.cm-photo{width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin:0 auto 14px;display:block}
+.cm-name{font-family:var(--sans);font-size:20px;font-weight:600;color:var(--white);margin-bottom:4px}
+.cm-role{font-family:var(--mono);font-size:12px;color:var(--text-2);letter-spacing:1px;text-transform:uppercase}
+.cm-divider{width:40px;height:1px;background:var(--gold);margin:18px auto;opacity:.4}
+.cm-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px 20px;border-radius:2px;font-family:var(--mono);font-size:14px;letter-spacing:.5px;text-decoration:none;transition:all .2s;margin-bottom:10px}
+.cm-btn--wa{background:#25D366;color:#fff;border:none}
+.cm-btn--wa:hover{background:#20bd5a}
+.cm-btn--mail{background:transparent;color:var(--gold);border:1px solid var(--border)}
+.cm-btn--mail:hover{border-color:var(--gold);background:rgba(201,160,80,.05)}
+.cm-footer{font-family:var(--mono);font-size:10px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;margin-top:14px}
 </style>
 </head>
 <body>
@@ -918,20 +941,6 @@ html{scroll-behavior:auto}
     </div>
   </div>
 </section>
-
-<!-- Mid-page CTA strip -->
-<div class="rv" style="background:linear-gradient(135deg,rgba(201,160,80,.04),rgba(0,212,255,.02));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px var(--px);text-align:center">
-  <div style="max-width:var(--max);margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px 32px">
-    <p style="font-family:var(--serif);font-style:italic;font-size:clamp(16px,2vw,20px);color:var(--gold-lt)">Interested in joining the Strategic Cortex?</p>
-    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center">
-      <a href="mailto:dror@align-gp.com" style="font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:2px;padding:8px 20px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='var(--gold)';this.style.color='var(--bg)'" onmouseout="this.style.background='transparent';this.style.color='var(--gold)'">Contact Us</a>
-      <a href="https://wa.me/972526130187?text=Hi%20Dror%2C%20just%20viewed%20your%20deck%20site." target="_blank" rel="noopener" style="font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:2px;padding:8px 20px;border:1px solid rgba(37,211,102,.4);color:#25D366;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:background .2s" onmouseover="this.style.background='rgba(37,211,102,.1)'" onmouseout="this.style.background='transparent'">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
-    </div>
-  </div>
-</div>
 
 <!-- ================================================================
      CORTEX DASHBOARD (Interactive Prototype)
@@ -1533,7 +1542,7 @@ html{scroll-behavior:auto}
       <p style="font-size:15px;color:var(--text-2);margin-bottom:8px">Founding Partner</p>
       <a href="mailto:dror@align-gp.com" style="font-family:var(--mono);font-size:14px;color:var(--gold);letter-spacing:.5px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(201,160,80,.4)">dror@align-gp.com</a>
       <div style="margin-top:12px">
-        <a href="https://wa.me/972526130187?text=Hi%20Dror%2C%20just%20viewed%20your%20deck%20site." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:13px;color:#25D366;letter-spacing:.5px;text-decoration:none;padding:8px 18px;border:1px solid rgba(37,211,102,.3);border-radius:2px;transition:background .2s,border-color .2s">
+        <a href="https://wa.me/972526130187?text=Hi%20Dror%2C%20just%20viewed%20ALIGN's%20deck%20site." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:13px;color:#25D366;letter-spacing:.5px;text-decoration:none;padding:8px 18px;border:1px solid rgba(37,211,102,.3);border-radius:2px;transition:background .2s,border-color .2s">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp
         </a>
@@ -1661,8 +1670,31 @@ html{scroll-behavior:auto}
 })();
 </script>
 
-<!-- Mobile sticky CTA -->
-<div class="mobile-cta" style="display:none"><a href="https://wa.me/972526130187?text=Hi%20Dror%2C%20just%20viewed%20your%20deck%20site." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Talk to Dror</a></div>
+<!-- Sticky Floating CTA Button + Contact Modal -->
+<button class="fab-cta" id="fabCta" aria-label="Contact us">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <span class="fab-label">Talk to Us</span>
+</button>
+
+<div class="contact-modal" id="contactModal">
+  <div class="cm-backdrop" id="cmBackdrop"></div>
+  <div class="cm-card">
+    <button class="cm-close" id="cmClose" aria-label="Close">&times;</button>
+    <img src="assets/headshots/dror-barak.jpg" alt="Dror Barak" class="cm-photo">
+    <div class="cm-name">Dror Barak</div>
+    <div class="cm-role">Founding Partner</div>
+    <div class="cm-divider"></div>
+    <a href="https://wa.me/972526130187?text=Hi%20Dror%2C%20just%20viewed%20ALIGN's%20deck%20site." target="_blank" rel="noopener" class="cm-btn cm-btn--wa">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Dror
+    </a>
+    <a href="mailto:dror@align-gp.com" class="cm-btn cm-btn--mail">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+      dror@align-gp.com
+    </a>
+    <div class="cm-footer">ALIGN Intelligence - Founding Partner</div>
+  </div>
+</div>
 
 <script>
 // Scroll progress bar
@@ -1674,12 +1706,12 @@ html{scroll-behavior:auto}
     bar.style.width=h>0?(window.scrollY/h*100)+'%':'0';
   },{passive:true});
 })();
-// Path card click -> scroll to contact
+// Path card click -> open contact modal
 (function(){
   document.querySelectorAll('.path').forEach(function(p){
     p.addEventListener('click',function(){
-      var ct=document.getElementById('contact-cta');
-      if(ct){ct.scrollIntoView({behavior:'smooth',block:'center'});}
+      var modal=document.getElementById('contactModal');
+      if(modal){modal.classList.add('open');document.body.style.overflow='hidden';}
     });
   });
 })();
@@ -1702,6 +1734,27 @@ html{scroll-behavior:auto}
   });
   // Also set referrer
   if(document.referrer&&window.clarity){window.clarity('set','referrer',document.referrer);}
+})();
+// Floating CTA + Contact Modal
+(function(){
+  var fab=document.getElementById('fabCta');
+  var modal=document.getElementById('contactModal');
+  var backdrop=document.getElementById('cmBackdrop');
+  var close=document.getElementById('cmClose');
+  if(!fab||!modal)return;
+  function openModal(){modal.classList.add('open');document.body.style.overflow='hidden';if(window.clarity)window.clarity('set','cta_opened','true');}
+  function closeModal(){modal.classList.remove('open');document.body.style.overflow='';}
+  fab.addEventListener('click',openModal);
+  backdrop.addEventListener('click',closeModal);
+  close.addEventListener('click',closeModal);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();});
+  // Show FAB after scrolling past hero
+  fab.style.opacity='0';fab.style.pointerEvents='none';
+  window.addEventListener('scroll',function(){
+    var show=window.scrollY>300;
+    fab.style.opacity=show?'1':'0';
+    fab.style.pointerEvents=show?'auto':'none';
+  },{passive:true});
 })();
 </script>
 
