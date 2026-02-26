@@ -613,12 +613,10 @@ html{scroll-behavior:auto}
   .hero-vis svg{max-width:100% !important;min-width:0 !important}
 }
 
-/* --- Scroll indicator (hero bottom) --- */
-.scroll-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:3;opacity:.5;animation:scrollFade 2.5s ease-in-out infinite}
-.scroll-hint span{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--gold)}
-.scroll-chevron{width:20px;height:20px;border-right:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(45deg);animation:scrollBounce 2.5s ease-in-out infinite}
-@keyframes scrollBounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(4px)}}
-@keyframes scrollFade{0%,100%{opacity:.3}50%{opacity:.7}}
+/* --- Scroll indicator (hero bottom) - signal line --- */
+.scroll-hint{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:3;width:1px;height:48px;background:rgba(201,160,80,.15);overflow:hidden;transition:opacity .5s}
+.scroll-hint::after{content:'';position:absolute;top:-6px;left:-2px;width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px rgba(201,160,80,.4);animation:signalDrop 2.2s ease-in-out infinite}
+@keyframes signalDrop{0%{top:-6px;opacity:0}10%{opacity:1}80%{opacity:1}100%{top:48px;opacity:0}}
 
 /* --- Contact highlight flash --- */
 @keyframes ctaFlash{0%{border-color:var(--gold);box-shadow:0 0 20px rgba(201,160,80,.15)}100%{border-color:var(--border);box-shadow:none}}
@@ -834,7 +832,7 @@ html{scroll-behavior:auto}
       </div>
     </div>
     <!-- Scroll hint -->
-    <div class="scroll-hint"><span>Scroll</span><div class="scroll-chevron"></div></div>
+    <div class="scroll-hint"></div>
   </div>
 </section>
 
