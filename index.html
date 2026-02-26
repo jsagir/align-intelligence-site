@@ -632,8 +632,14 @@ html{scroll-behavior:auto}
 @keyframes ctaFlash{0%{border-color:var(--gold);box-shadow:0 0 20px rgba(201,160,80,.15)}100%{border-color:var(--border);box-shadow:none}}
 .cta-flash{animation:ctaFlash 1.5s ease-out;border:1px solid var(--gold);border-radius:4px;padding:28px;margin:-28px}
 
-/* --- Scroll progress bar --- */
-.scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--cyan));z-index:1001;width:0;transition:width .1s linear}
+/* --- Scroll progress tracker --- */
+.scroll-track{position:fixed;top:var(--nav-h);left:0;right:0;z-index:999;pointer-events:none;opacity:0;transition:opacity .4s}
+.scroll-track.vis{opacity:1}
+.scroll-track-bar{height:1.5px;background:rgba(201,160,80,.06);position:relative}
+.scroll-track-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--cyan));width:0;transition:width .15s linear;opacity:.5}
+.scroll-track-label{position:absolute;right:var(--px);top:6px;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:2px;color:var(--gold);opacity:.3;transition:opacity .4s,color .4s;white-space:nowrap}
+.scroll-track-label.changing{opacity:0}
+@media(max-width:768px){.scroll-track-label{font-size:8px;letter-spacing:1.5px}}
 
 /* --- Floating CTA Button --- */
 .fab-cta{position:fixed;bottom:24px;right:24px;z-index:998;display:flex;align-items:center;gap:8px;padding:14px 22px;background:rgba(2,11,26,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--gold);color:var(--gold);font-family:var(--mono);cursor:pointer;border-radius:2px;transition:all .3s;box-shadow:0 4px 24px rgba(0,0,0,.4)}
@@ -847,7 +853,7 @@ html{scroll-behavior:auto}
 </section>
 
 <!-- Scroll progress bar -->
-<div class="scroll-progress" id="scrollProg"></div>
+<div class="scroll-track" id="scrollTrack"><div class="scroll-track-bar"><div class="scroll-track-fill" id="scrollFill"></div></div><div class="scroll-track-label" id="scrollLabel"></div></div>
 
 <!-- ================================================================
      2. WHY IMEC
@@ -1705,14 +1711,49 @@ html{scroll-behavior:auto}
 </div>
 
 <script>
-// Scroll progress bar
+// Scroll progress tracker with section label
 (function(){
-  var bar=document.getElementById('scrollProg');
-  if(!bar)return;
-  window.addEventListener('scroll',function(){
+  var track=document.getElementById('scrollTrack');
+  var fill=document.getElementById('scrollFill');
+  var label=document.getElementById('scrollLabel');
+  if(!track||!fill||!label)return;
+  var sections=[
+    {id:'hero',name:''},
+    {id:'why-imec',name:'Why IMEC'},
+    {id:'align-who',name:'ALIGN'},
+    {id:'derisking',name:'De-Risking'},
+    {id:'dna',name:'Our DNA'},
+    {id:'cortex',name:'The Cortex'},
+    {id:'forces',name:'Forces 1 & 2'},
+    {id:'force3',name:'Force 3'},
+    {id:'deliverables',name:'Deliverables'},
+    {id:'team',name:'The Team'},
+    {id:'ecosystem',name:'Round Table'},
+    {id:'momentum',name:'Momentum'},
+    {id:'roadmap',name:'Timeline'},
+    {id:'pipeline',name:'Pipeline'},
+    {id:'join',name:'Join Us'}
+  ];
+  var current='';
+  function update(){
     var h=document.documentElement.scrollHeight-window.innerHeight;
-    bar.style.width=h>0?(window.scrollY/h*100)+'%':'0';
-  },{passive:true});
+    var pct=h>0?(window.scrollY/h*100):0;
+    fill.style.width=pct+'%';
+    track.classList.toggle('vis',window.scrollY>200);
+    // Find current section
+    var found='';
+    for(var i=sections.length-1;i>=0;i--){
+      var el=document.getElementById(sections[i].id);
+      if(el&&el.getBoundingClientRect().top<window.innerHeight*0.4){found=sections[i].name;break;}
+    }
+    if(found!==current){
+      label.classList.add('changing');
+      setTimeout(function(){label.textContent=found;label.classList.remove('changing');},200);
+      current=found;
+    }
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
 })();
 // Path card click -> open contact modal
 (function(){
