@@ -602,9 +602,19 @@ html{scroll-behavior:auto}
   /* Performance - pause SVG animations */
   .fp,.df{animation:none !important}
 
-  /* Floating CTA button - smaller on mobile */
-  .fab-cta{bottom:16px;right:16px;padding:12px 18px}
-  .fab-label{font-size:11px}
+  /* Floating CTA button - compact on mobile */
+  .fab-cta{bottom:14px;right:14px;padding:8px 14px;gap:5px;border-color:rgba(201,160,80,.4);box-shadow:0 2px 12px rgba(0,0,0,.3)}
+  .fab-cta svg{width:16px;height:16px}
+  .fab-label{font-size:9px;letter-spacing:1.5px}
+  /* Modal - tighter on mobile */
+  .cm-card{padding:28px 24px 22px;max-width:300px}
+  .cm-photo{width:56px;height:56px;margin-bottom:10px}
+  .cm-name{font-size:16px}
+  .cm-role{font-size:10px}
+  .cm-divider{margin:12px auto}
+  .cm-btn{padding:11px 16px;font-size:12px;gap:8px}
+  .cm-btn svg{width:15px;height:15px}
+  .cm-footer{font-size:8px;margin-top:10px}
 }
 
 /* Tablet tweaks */
@@ -629,7 +639,7 @@ html{scroll-behavior:auto}
 .fab-cta{position:fixed;bottom:24px;right:24px;z-index:998;display:flex;align-items:center;gap:8px;padding:14px 22px;background:rgba(2,11,26,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--gold);color:var(--gold);font-family:var(--mono);cursor:pointer;border-radius:2px;transition:all .3s;box-shadow:0 4px 24px rgba(0,0,0,.4)}
 .fab-cta:hover{background:var(--gold);color:var(--bg);box-shadow:0 4px 32px rgba(201,160,80,.2)}
 .fab-label{font-size:13px;text-transform:uppercase;letter-spacing:2px;font-weight:500}
-@keyframes fabPulse{0%,100%{box-shadow:0 4px 24px rgba(0,0,0,.4)}50%{box-shadow:0 4px 24px rgba(201,160,80,.15)}}
+@keyframes fabPulse{0%,100%{box-shadow:0 2px 16px rgba(0,0,0,.3)}50%{box-shadow:0 2px 16px rgba(201,160,80,.08)}}
 .fab-cta{animation:fabPulse 4s ease-in-out infinite}
 .fab-cta:hover{animation:none}
 
